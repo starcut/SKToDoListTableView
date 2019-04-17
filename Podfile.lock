@@ -1,0 +1,16 @@
+PODS:
+  - SKPaddingLabel (1.0.4)
+
+DEPENDENCIES:
+  - SKPaddingLabel
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SKPaddingLabel
+
+SPEC CHECKSUMS:
+  SKPaddingLabel: 549c3d409e5d22e3d833d8b270930a10f92c0cd0
+
+PODFILE CHECKSUM: 13aa84f61ccfb616d85cefdff232bb6732572094
+
+COCOAPODS: 1.6.1
