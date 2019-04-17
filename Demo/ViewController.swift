@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         for i in 1...4 {
             var element: ToDoListModel = ToDoListModel.init()
             if i%4 == 0 {
-                element = ToDoListModel.init(text: String(format: "TODO %00d f\ntest\ntest", i),
+                element = ToDoListModel.init(text: String(format: "TODO %00d f\n\n\n\ntest", i),
                                              priority: .lowPriority,
                                              isCompleted: false,
                                              registerDate: Date.init())
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
                                              isCompleted: false,
                                              registerDate: Date.init())
             } else if i%4 == 2 {
-                element = ToDoListModel.init(text: String(format: "TODO %00d f\ntest\ntest", i),
+                element = ToDoListModel.init(text: String(format: "TODO %00d f\ntesttest", i),
                                                                 priority: .highPriority,
                                                                 isCompleted: false,
                                                                 registerDate: Date.init())

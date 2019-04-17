@@ -65,7 +65,8 @@ class SKToDoListTableViewCell: UITableViewCell {
             let bounds: CGSize = CGSize(width: self.toDoTextLabel.frame.width, height: .greatestFiniteMagnitude)
             let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
             let rect: CGRect = self.toDoTextLabel.attributedText?.boundingRect(with: bounds, options: options, context: nil) ?? CGRect.zero
-            let labelHeight: CGFloat = ceil(rect.size.height) + 2.0
+            let labelHeight: CGFloat = rect.size.height
+            
             let marginHeight: CGFloat = self.toDoTextLabelTopMargin.constant + self.toDoTextLabelBottomMargin.constant
             cellHeight = labelHeight + marginHeight
         }
@@ -180,13 +181,15 @@ class SKToDoListTableViewCell: UITableViewCell {
                 
             case .middlePriority:
                 stringAttributes = [
-                    .foregroundColor: UIColor.black
+                    .foregroundColor: UIColor.black,
+                    .font: UIFont.systemFont(ofSize: 17.0, weight: .regular)
                 ]
             break
                 
             case .highPriority:
                 stringAttributes = [
-                    .foregroundColor: UIColor.orange
+                    .foregroundColor: UIColor.orange,
+                    .font: UIFont.systemFont(ofSize: 17.0, weight: .regular)
                 ]
             break
                 

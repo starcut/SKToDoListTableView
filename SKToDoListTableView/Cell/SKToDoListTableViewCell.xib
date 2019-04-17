@@ -19,8 +19,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOs-s9-CWQ">
-                        <rect key="frame" x="0.0" y="12" width="42" height="20.5"/>
-                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="10" y="12" width="42" height="20.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                     <constraint firstAttribute="bottom" secondItem="aOs-s9-CWQ" secondAttribute="bottom" constant="12" id="GYD-AZ-uSN"/>
                     <constraint firstItem="aOs-s9-CWQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="IUy-Ln-mBj"/>
                     <constraint firstAttribute="trailing" secondItem="20W-Pj-amD" secondAttribute="trailing" constant="10" id="imO-HD-DHD"/>
-                    <constraint firstItem="aOs-s9-CWQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oKv-uK-Ig0"/>
+                    <constraint firstItem="aOs-s9-CWQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="oKv-uK-Ig0"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
