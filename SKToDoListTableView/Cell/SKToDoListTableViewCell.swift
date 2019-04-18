@@ -35,6 +35,12 @@ class SKToDoListTableViewCell: UITableViewCell {
     @IBOutlet weak var toDoTextLabelTopMargin: NSLayoutConstraint!
     // ToDOリストの文言の下マージン
     @IBOutlet weak var toDoTextLabelBottomMargin: NSLayoutConstraint!
+    // 期日を表示するラベル
+    @IBOutlet weak var deadlineLabel: UILabel!
+    // 期日を表示するラベルの高さ
+    @IBOutlet weak var deadlineLabelHeight: NSLayoutConstraint!
+    // 期日を表示するラベルの上マージン
+    @IBOutlet weak var deadlineLabelTopMargin: NSLayoutConstraint!
     
     var delegate: SKToDoListTableViewCellDelegate?
     // セルの位置情報
@@ -73,6 +79,7 @@ class SKToDoListTableViewCell: UITableViewCell {
         self.indexPath = indexPath
         self.switchTextStyle(model: model)
         self.canExpand = false
+        self.deadlineLabel.text = "期限：" + model.deadline
         
         // セルの高さが未設定（初回）のみ行う
         if model.textHeight == 0.0 {
@@ -126,10 +133,15 @@ class SKToDoListTableViewCell: UITableViewCell {
         let rect: CGRect = self.toDoTextLabel.attributedText?.boundingRect(with: bounds,
                                                                            options: options,
                                                                            context: nil) ?? CGRect.zero
-        let marginHeight: CGFloat = self.toDoTextLabelTopMargin.constant + self.toDoTextLabelBottomMargin.constant
+        
+        var fixedHeight: CGFloat = self.toDoTextLabelTopMargin.constant
+        fixedHeight += self.toDoTextLabelBottomMargin.constant
+        fixedHeight += self.deadlineLabelTopMargin.constant
+        fixedHeight += self.deadlineLabelHeight.constant
+        fixedHeight += LABEL_HEIGHT_FIXED
         
         self.delegate?.setToDoTextLabelHeight(cell: self,
-                                              labelHeight: ceil(rect.size.height) + marginHeight + LABEL_HEIGHT_FIXED,
+                                              labelHeight: ceil(rect.size.height) + fixedHeight,
                                               linesNumber: Int(ceil(rect.size.height) / labelLineHeight) )
     }
     
@@ -145,7 +157,8 @@ class SKToDoListTableViewCell: UITableViewCell {
         if model.isCompleted {
             stringAttributes = [
                 .foregroundColor: COMPLETED_TEXT_COLOR,
-                .font: UIFont.systemFont(ofSize: 17.0, weight: .light),
+                .font: UIFont.systemFont(ofSize: self.toDoTextLabel.font.pointSize,
+                                         weight: .light),
                 .strikethroughStyle: 2
             ]
             let attributeString: NSAttributedString = NSAttributedString(string: model.text,
@@ -159,28 +172,32 @@ class SKToDoListTableViewCell: UITableViewCell {
             case .lowPriority:
                 stringAttributes = [
                     .foregroundColor: UIColor.blue,
-                    .font: UIFont.systemFont(ofSize: 17.0, weight: .light)
+                    .font: UIFont.systemFont(ofSize: self.toDoTextLabel.font.pointSize,
+                                             weight: .light)
                 ]
                 break
                 
             case .middlePriority:
                 stringAttributes = [
                     .foregroundColor: UIColor.black,
-                    .font: UIFont.systemFont(ofSize: 17.0, weight: .regular)
+                    .font: UIFont.systemFont(ofSize: self.toDoTextLabel.font.pointSize,
+                                             weight: .regular)
                 ]
                 break
                 
             case .highPriority:
                 stringAttributes = [
                     .foregroundColor: UIColor.orange,
-                    .font: UIFont.systemFont(ofSize: 17.0, weight: .regular)
+                    .font: UIFont.systemFont(ofSize: self.toDoTextLabel.font.pointSize,
+                                             weight: .regular)
                 ]
                 break
                 
             case .emergencyPriority:
                 stringAttributes = [
                     .foregroundColor: UIColor.red,
-                    .font: UIFont.systemFont(ofSize: 17.0, weight: .bold)
+                    .font: UIFont.systemFont(ofSize: self.toDoTextLabel.font.pointSize,
+                                             weight: .bold)
                 ]
                 break
             }

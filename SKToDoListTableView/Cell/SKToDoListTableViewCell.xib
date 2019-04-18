@@ -11,20 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="SKToDoListTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="SKToDoListTableViewCell" id="KGk-i7-Jjw" customClass="SKToDoListTableViewCell" customModule="Demo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="SKToDoListTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="SKToDoListTableViewCell" rowHeight="66" id="KGk-i7-Jjw" customClass="SKToDoListTableViewCell" customModule="Demo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOs-s9-CWQ">
-                        <rect key="frame" x="10" y="12" width="270" height="20.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="20W-Pj-amD">
                         <rect key="frame" x="290" y="12" width="20" height="20"/>
                         <constraints>
@@ -32,25 +25,71 @@
                             <constraint firstAttribute="width" constant="20" id="vF5-KE-4Aq"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79B-8Z-Cbv">
+                        <rect key="frame" x="10" y="10" width="270" height="45.5"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOs-s9-CWQ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="21.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fAz-UB-3lg">
+                                <rect key="frame" x="250" y="0.0" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="7d0-gz-tL0"/>
+                                    <constraint firstAttribute="width" secondItem="fAz-UB-3lg" secondAttribute="height" multiplier="1:1" id="fmm-Ic-bhs"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="icon_edit"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YYYY/MM/dd HH:mmまで" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9G-ZB-aO9">
+                                <rect key="frame" x="63" y="29.5" width="177" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="zwv-k1-V82"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aOs-s9-CWQ" firstAttribute="leading" secondItem="79B-8Z-Cbv" secondAttribute="leading" id="1uR-Q2-bu8"/>
+                            <constraint firstItem="fAz-UB-3lg" firstAttribute="leading" secondItem="aOs-s9-CWQ" secondAttribute="trailing" constant="10" id="583-q3-jCb"/>
+                            <constraint firstItem="fAz-UB-3lg" firstAttribute="top" secondItem="79B-8Z-Cbv" secondAttribute="top" id="Avc-5O-TV1"/>
+                            <constraint firstItem="r9G-ZB-aO9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aOs-s9-CWQ" secondAttribute="bottom" constant="8" id="ENc-yy-My5"/>
+                            <constraint firstAttribute="trailing" secondItem="fAz-UB-3lg" secondAttribute="trailing" id="I2B-WA-HIQ"/>
+                            <constraint firstItem="r9G-ZB-aO9" firstAttribute="trailing" secondItem="aOs-s9-CWQ" secondAttribute="trailing" id="hpd-xc-PFt"/>
+                            <constraint firstItem="aOs-s9-CWQ" firstAttribute="top" secondItem="79B-8Z-Cbv" secondAttribute="top" id="sVA-A1-lzO"/>
+                            <constraint firstAttribute="bottom" secondItem="r9G-ZB-aO9" secondAttribute="bottom" id="t3t-Af-9IU"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="20W-Pj-amD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="6dT-wS-8NA"/>
-                    <constraint firstItem="20W-Pj-amD" firstAttribute="leading" secondItem="aOs-s9-CWQ" secondAttribute="trailing" constant="10" id="80c-y9-1E6"/>
-                    <constraint firstAttribute="bottom" secondItem="aOs-s9-CWQ" secondAttribute="bottom" constant="12" id="GYD-AZ-uSN"/>
-                    <constraint firstItem="aOs-s9-CWQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="IUy-Ln-mBj"/>
+                    <constraint firstItem="79B-8Z-Cbv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="BLa-VE-GHQ"/>
+                    <constraint firstAttribute="bottom" secondItem="79B-8Z-Cbv" secondAttribute="bottom" constant="10" id="LpD-i7-rgk"/>
+                    <constraint firstItem="20W-Pj-amD" firstAttribute="leading" secondItem="79B-8Z-Cbv" secondAttribute="trailing" constant="10" id="gKU-1C-WgM"/>
                     <constraint firstAttribute="trailing" secondItem="20W-Pj-amD" secondAttribute="trailing" constant="10" id="imO-HD-DHD"/>
-                    <constraint firstItem="aOs-s9-CWQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="oKv-uK-Ig0"/>
+                    <constraint firstItem="79B-8Z-Cbv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="uEc-ck-n1o"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="arrowImageView" destination="20W-Pj-amD" id="hz0-mJ-QRr"/>
+                <outlet property="deadlineLabel" destination="r9G-ZB-aO9" id="R0h-hb-qH1"/>
+                <outlet property="deadlineLabelHeight" destination="zwv-k1-V82" id="WLN-HH-toe"/>
+                <outlet property="deadlineLabelTopMargin" destination="ENc-yy-My5" id="w7k-bc-OqO"/>
                 <outlet property="toDoTextLabel" destination="aOs-s9-CWQ" id="uCL-bL-dnf"/>
-                <outlet property="toDoTextLabelBottomMargin" destination="GYD-AZ-uSN" id="Dv1-Ln-agN"/>
-                <outlet property="toDoTextLabelTopMargin" destination="IUy-Ln-mBj" id="o1u-as-QkP"/>
+                <outlet property="toDoTextLabelBottomMargin" destination="LpD-i7-rgk" id="9nD-kc-Run"/>
+                <outlet property="toDoTextLabelTopMargin" destination="BLa-VE-GHQ" id="Oyp-vU-bqE"/>
             </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="31.138392857142854"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="icon_arrow" width="16" height="16"/>
+        <image name="icon_edit" width="16" height="16"/>
     </resources>
 </document>

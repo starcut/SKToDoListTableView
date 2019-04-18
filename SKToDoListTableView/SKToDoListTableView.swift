@@ -12,11 +12,9 @@ class SKToDoListTableView: UITableView {
     // ToDoリストのセル識別子
     let TO_DO_LIST_TABLE_VIEW_CELL: String = "SKToDoListTableViewCell"
     // デフォルトのセルの高さ
-    let DEFAULT_CELL_HEIGHT: CGFloat = 45.0
+    let DEFAULT_CELL_HEIGHT: CGFloat = 66.0
     // ToDoリストの内容を格納した配列
     var toDoListArray: [ToDoListModel] = []
-    // ToDoリストのセルの高さ
-    var toDoListHeightArray: [CGFloat] = []
     
     // MARK: 初期化処理
     
@@ -47,7 +45,6 @@ class SKToDoListTableView: UITableView {
     
     func appendToDoListArray(element: ToDoListModel){
         self.toDoListArray.append(element)
-        self.toDoListHeightArray.append(DEFAULT_CELL_HEIGHT)
     }
 }
 

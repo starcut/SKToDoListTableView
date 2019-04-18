@@ -18,31 +18,64 @@ class ToDoListModel: NSObject {
     }
     
     // ToDoリストの内容
-    var text: String
+    var text: String = ""
     // ToDoリストの内容の全文表示時のラベルの高さ
     var textHeight: CGFloat = 0.0
     // 優先度
-    var priority: ToDoPriority
+    var priority: ToDoPriority = .middlePriority
     // 完了・未完了
     var isCompleted: Bool = false
     // 登録日
-    var registerDate: Date = Date.init()
+    var registerDate: String = ""
+    // 期日
+    var deadline: String = ""
     // ToDoリストの行数
     var linesNumber: Int = 1
     // セルが全文表示されているかどうか
     var isExpanded: Bool = false
+    // セルを広げることができるかどうか
+    var canExpand: Bool = false
     
     // 基本的にこちらは使わない
     override init() {
+        super.init()
+        
         self.text = "ToDoの内容が入力されていません"
-        self.priority = .middlePriority
-        self.registerDate = .init()
+        self.setRegisterAndDeadline(registerDate: Date(), deadline: nil)
     }
     
     // ToDoの登録内容を格納して初期化する
-    init(text: String, priority: ToDoPriority, registerDate: Date) {
+    init(text: String, priority: ToDoPriority, registerDate: Date, deadline: Date!) {
+        super.init()
+        
         self.text = text
         self.priority = priority
-        self.registerDate = registerDate
+        self.setRegisterAndDeadline(registerDate: registerDate, deadline: deadline)
+    }
+    
+    func setRegisterAndDeadline(registerDate: Date, deadline: Date!) {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy/MM/dd HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+        self.registerDate = formatter.string(from: registerDate)
+        
+        // 期日が設定されなかった場合は、登録した月の末日に設定
+        if (deadline == nil) {
+            let calendar: Calendar = Calendar.current
+            // 年月日時分秒のNSComponents
+            var comp = calendar.dateComponents([.year, .month], from: Date())
+            
+            // 月初の0時0分0秒に設定
+            comp.hour = 23
+            comp.minute = 59
+            
+            // その月が何日あるかを計算し、最終日を設定
+            let range = calendar.range(of: .day, in: .month, for: Date())
+            comp.day = range?.count
+            
+            // Dateを作成
+            self.deadline = formatter.string(from: calendar.date(from: comp)!)
+        } else {
+            self.deadline = formatter.string(from: deadline)
+        }
     }
 }
