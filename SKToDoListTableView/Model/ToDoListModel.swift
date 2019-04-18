@@ -53,7 +53,14 @@ class ToDoListModel: NSObject {
         self.setRegisterAndDeadline(registerDate: registerDate, deadline: deadline)
     }
     
-    func setRegisterAndDeadline(registerDate: Date, deadline: Date!) {
+    /**
+     * 登録日、期限の設定を行う
+     *
+     * - Parameters:
+     *  - registerDate: 登録日
+     *  - deadline:     期限
+     */
+    fileprivate func setRegisterAndDeadline(registerDate: Date, deadline: Date!) {
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy/MM/dd HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
         self.registerDate = formatter.string(from: registerDate)
@@ -61,7 +68,6 @@ class ToDoListModel: NSObject {
         // 期日が設定されなかった場合は、登録した月の末日に設定
         if (deadline == nil) {
             let calendar: Calendar = Calendar.current
-            // 年月日時分秒のNSComponents
             var comp = calendar.dateComponents([.year, .month], from: Date())
             
             // 月初の0時0分0秒に設定
