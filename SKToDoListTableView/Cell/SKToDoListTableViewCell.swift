@@ -40,6 +40,8 @@ class SKToDoListTableViewCell: UITableViewCell {
     private let COMPLETED_TEXT_COLOR: UIColor = .lightGray
     // アニメーションの時間
     private let ANIMATION_DURATION: TimeInterval = 0.2
+    // テキストからラベルの高さを取得する際、少しゆとりをもつための値
+    private let LABEL_HEIGHT_FIXED: CGFloat = 2.0
     // アニメーション中など、セルを広げる処理が可能なタイミングかどうか
     private var canExpand: Bool = false
     // セルを広げているかどうか
@@ -65,7 +67,7 @@ class SKToDoListTableViewCell: UITableViewCell {
             let bounds: CGSize = CGSize(width: self.toDoTextLabel.frame.width, height: .greatestFiniteMagnitude)
             let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
             let rect: CGRect = self.toDoTextLabel.attributedText?.boundingRect(with: bounds, options: options, context: nil) ?? CGRect.zero
-            let labelHeight: CGFloat = rect.size.height
+            let labelHeight: CGFloat = ceil(rect.size.height) + LABEL_HEIGHT_FIXED
             
             let marginHeight: CGFloat = self.toDoTextLabelTopMargin.constant + self.toDoTextLabelBottomMargin.constant
             cellHeight = labelHeight + marginHeight
@@ -74,19 +76,21 @@ class SKToDoListTableViewCell: UITableViewCell {
     }
     
     func switchExpandCell() {
-        if !self.isExpanded {
-            self.arrowImageView.transform = CGAffineTransform(rotationAngle: 0.0)
-        } else {
-            self.arrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi/1000.0*999)
+        UIView.animate(withDuration: ANIMATION_DURATION) {
+            if !self.isExpanded {
+                self.arrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi/1000.0*999)
+            } else {
+                self.arrowImageView.transform = CGAffineTransform(rotationAngle: 0.0)
+            }
         }
     }
     
     func updateCompletion() {
-        if !self.isExpanded {
+        /*if !self.isExpanded {
             self.toDoTextLabel.numberOfLines = 0
         } else {
             self.toDoTextLabel.numberOfLines = 1
-        }
+        }*/
         self.isExpanded = !self.isExpanded
         self.canExpand = true
     }
@@ -162,11 +166,11 @@ class SKToDoListTableViewCell: UITableViewCell {
         if model.isCompleted {
             let stringAttributes : [NSAttributedString.Key : Any] = [
                 .foregroundColor: COMPLETED_TEXT_COLOR,
+                .font: UIFont.systemFont(ofSize: 17.0, weight: .light),
                 .strikethroughStyle: 2
             ]
             let attributeString: NSAttributedString = NSAttributedString(string: self.toDoTextLabel.text!, attributes: stringAttributes)
             self.toDoTextLabel.attributedText = attributeString
-            self.toDoTextLabel.textColor = COMPLETED_TEXT_COLOR
         } else {
             var stringAttributes : [NSAttributedString.Key : Any] = Dictionary.init()
             

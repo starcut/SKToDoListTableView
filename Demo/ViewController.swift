@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         for i in 1...4 {
             var element: ToDoListModel = ToDoListModel.init()
             if i%4 == 0 {
-                element = ToDoListModel.init(text: String(format: "TODO %00d f\n\n\n\ntest", i),
+                element = ToDoListModel.init(text: String(format: "TODO %00d ftesttestetstetestestetsetftesttestetstetestestetsetftesttestetstetestestetset", i),
                                              priority: .lowPriority,
                                              isCompleted: false,
                                              registerDate: Date.init())
