@@ -14,29 +14,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        for i in 1...4 {
+        for i in 1...100 {
             var element: ToDoListModel = ToDoListModel.init()
             if i%4 == 0 {
-                element = ToDoListModel.init(text: String(format: "TODO %00d ftesttestetstetestestetsetftesttestetstetestestetsetftesttestetstetestestetset", i),
+                element = ToDoListModel.init(text: String(format: "TODO %00d f\n\n\n\ntest", i),
                                              priority: .lowPriority,
-                                             isCompleted: false,
                                              registerDate: Date.init())
             } else if i%4 == 1 {
                 element = ToDoListModel.init(text: String(format: "TODO %00d", i),
                                              priority: .middlePriority,
-                                             isCompleted: false,
                                              registerDate: Date.init())
             } else if i%4 == 2 {
                 element = ToDoListModel.init(text: String(format: "TODO %00d f\ntesttest", i),
                                                                 priority: .highPriority,
-                                                                isCompleted: false,
                                                                 registerDate: Date.init())
             } else {
                 element = ToDoListModel.init(text: String(format: "TODO %00d", i),
                                                                 priority: .emergencyPriority,
-                                                                isCompleted: false,
                                                                 registerDate: Date.init())
             }
             self.tableView.appendToDoListArray(element: element)

@@ -70,7 +70,10 @@ extension SKToDoListTableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.toDoListHeightArray[indexPath.row]
+        if self.toDoListArray[indexPath.row].isExpanded {
+            return self.toDoListArray[indexPath.row].textHeight
+        }
+        return DEFAULT_CELL_HEIGHT
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,20 +95,21 @@ extension SKToDoListTableView: UITableViewDelegate, UITableViewDataSource {
 
 // セルのステータスによる処理
 extension SKToDoListTableView: SKToDoListTableViewCellDelegate {
+    func setToDoTextLabelHeight(cell: SKToDoListTableViewCell, labelHeight: CGFloat, linesNumber: Int) {
+        self.toDoListArray[cell.indexPath.row].textHeight = labelHeight
+        self.toDoListArray[cell.indexPath.row].linesNumber = linesNumber
+    }
+    
     // 完了状態を切り替える
     func switchCompletionStatus(cell: SKToDoListTableViewCell) {
         self.toDoListArray[cell.indexPath.row].isCompleted = !self.toDoListArray[cell.indexPath.row].isCompleted
         cell.setCellConfigure(model: self.toDoListArray[cell.indexPath.row], indexPath: cell.indexPath)
     }
     
-    func switchExpandStatus(cell: SKToDoListTableViewCell, height: CGFloat) {
-        var ajdustHeight = height
-        if ajdustHeight == 0.0 {
-            ajdustHeight = DEFAULT_CELL_HEIGHT
-        }
-        self.toDoListHeightArray[cell.indexPath.row] = ajdustHeight
+    func switchExpandStatus(cell: SKToDoListTableViewCell) {
+        self.toDoListArray[cell.indexPath.row].isExpanded = !self.toDoListArray[cell.indexPath.row].isExpanded
         self.performBatchUpdates({
-            cell.switchExpandCell()
+            cell.switchExpandCell(isExpanded: self.toDoListArray[cell.indexPath.row].isExpanded)
         }) { (isFinished) in
             cell.updateCompletion()
         }
