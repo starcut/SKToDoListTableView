@@ -14,6 +14,10 @@
 		7C9CA82E2260846800B4B57C /* SKToDoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CA82A2260846800B4B57C /* SKToDoListTableViewCell.xib */; };
 		7C9CA83022608B7100B4B57C /* ToDoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9CA82F22608B7100B4B57C /* ToDoListModel.swift */; };
 		7C9CA83122608B7100B4B57C /* ToDoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9CA82F22608B7100B4B57C /* ToDoListModel.swift */; };
+		7CDD0C5522687D89008A04A4 /* ToDoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD0C5422687D89008A04A4 /* ToDoEditView.swift */; };
+		7CDD0C5622687D89008A04A4 /* ToDoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD0C5422687D89008A04A4 /* ToDoEditView.swift */; };
+		7CDD0C5922687DAB008A04A4 /* ToDoEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD0C5822687DAB008A04A4 /* ToDoEditView.xib */; };
+		7CDD0C5A22687DAB008A04A4 /* ToDoEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD0C5822687DAB008A04A4 /* ToDoEditView.xib */; };
 		7CF70A8622607C9B00667EC9 /* SKToDoListTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CF70A8422607C9B00667EC9 /* SKToDoListTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CF70A9322607D8F00667EC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70A9222607D8F00667EC9 /* AppDelegate.swift */; };
 		7CF70A9522607D8F00667EC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70A9422607D8F00667EC9 /* ViewController.swift */; };
@@ -33,6 +37,8 @@
 		7C9CA8292260846800B4B57C /* SKToDoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKToDoListTableViewCell.swift; sourceTree = "<group>"; };
 		7C9CA82A2260846800B4B57C /* SKToDoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SKToDoListTableViewCell.xib; sourceTree = "<group>"; };
 		7C9CA82F22608B7100B4B57C /* ToDoListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListModel.swift; sourceTree = "<group>"; };
+		7CDD0C5422687D89008A04A4 /* ToDoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoEditView.swift; sourceTree = "<group>"; };
+		7CDD0C5822687DAB008A04A4 /* ToDoEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoEditView.xib; sourceTree = "<group>"; };
 		7CF70A8122607C9B00667EC9 /* SKToDoListTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKToDoListTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF70A8422607C9B00667EC9 /* SKToDoListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKToDoListTableView.h; sourceTree = "<group>"; };
 		7CF70A8522607C9B00667EC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 		7C9CA8322260935800B4B57C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				7CDD0C5722687D93008A04A4 /* AlertView */,
 				7C9CA8292260846800B4B57C /* SKToDoListTableViewCell.swift */,
 				7C9CA82A2260846800B4B57C /* SKToDoListTableViewCell.xib */,
 			);
@@ -96,6 +103,15 @@
 				7C9CA82F22608B7100B4B57C /* ToDoListModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7CDD0C5722687D93008A04A4 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				7CDD0C5422687D89008A04A4 /* ToDoEditView.swift */,
+				7CDD0C5822687DAB008A04A4 /* ToDoEditView.xib */,
+			);
+			path = AlertView;
 			sourceTree = "<group>";
 		};
 		7CF70A7722607C9B00667EC9 = {
@@ -247,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CDD0C5A22687DAB008A04A4 /* ToDoEditView.xib in Resources */,
 				7C9CA82D2260846800B4B57C /* SKToDoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +275,7 @@
 				7CF70A9D22607D9000667EC9 /* LaunchScreen.storyboard in Resources */,
 				7CF70A9A22607D9000667EC9 /* Assets.xcassets in Resources */,
 				7CF70A9822607D8F00667EC9 /* Main.storyboard in Resources */,
+				7CDD0C5922687DAB008A04A4 /* ToDoEditView.xib in Resources */,
 				7C9CA82E2260846800B4B57C /* SKToDoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CDD0C5622687D89008A04A4 /* ToDoEditView.swift in Sources */,
 				7CF70AA522607DC400667EC9 /* SKToDoListTableView.swift in Sources */,
 				7C9CA83022608B7100B4B57C /* ToDoListModel.swift in Sources */,
 				7C9CA82B2260846800B4B57C /* SKToDoListTableViewCell.swift in Sources */,
@@ -352,6 +371,7 @@
 				7CF70AA622607DC400667EC9 /* SKToDoListTableView.swift in Sources */,
 				7CF70A9322607D8F00667EC9 /* AppDelegate.swift in Sources */,
 				7C9CA83122608B7100B4B57C /* ToDoListModel.swift in Sources */,
+				7CDD0C5522687D89008A04A4 /* ToDoEditView.swift in Sources */,
 				7C9CA82C2260846800B4B57C /* SKToDoListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,19 +18,19 @@ class ToDoListModel: NSObject {
     }
     
     // ToDoリストの内容
-    var text: String = ""
+    var text: String = "ToDoの内容が入力されていません"
     // ToDoリストの内容の全文表示時のラベルの高さ
     var textHeight: CGFloat = 0.0
+    // ToDoリストの行数
+    var linesNumber: Int = 1
     // 優先度
     var priority: ToDoPriority = .middlePriority
-    // 完了・未完了
-    var isCompleted: Bool = false
     // 登録日
     var registerDate: String = ""
     // 期日
     var deadline: String = ""
-    // ToDoリストの行数
-    var linesNumber: Int = 1
+    // 完了・未完了
+    var isCompleted: Bool = false
     // セルが全文表示されているかどうか
     var isExpanded: Bool = false
     // セルを広げることができるかどうか
@@ -40,7 +40,6 @@ class ToDoListModel: NSObject {
     override init() {
         super.init()
         
-        self.text = "ToDoの内容が入力されていません"
         self.setRegisterAndDeadline(registerDate: Date(), deadline: nil)
     }
     

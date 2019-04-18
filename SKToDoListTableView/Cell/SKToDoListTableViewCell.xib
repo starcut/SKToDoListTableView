@@ -29,7 +29,7 @@
                         <rect key="frame" x="10" y="10" width="270" height="45.5"/>
                         <subviews>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOs-s9-CWQ">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="21.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -42,6 +42,9 @@
                                     <constraint firstAttribute="width" secondItem="fAz-UB-3lg" secondAttribute="height" multiplier="1:1" id="fmm-Ic-bhs"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="icon_edit"/>
+                                <connections>
+                                    <action selector="pushedEditButtonWithSender:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tLd-HD-oJA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YYYY/MM/dd HH:mmまで" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9G-ZB-aO9">
                                 <rect key="frame" x="63" y="29.5" width="177" height="16"/>

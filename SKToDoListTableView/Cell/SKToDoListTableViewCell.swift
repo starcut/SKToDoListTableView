@@ -236,6 +236,11 @@ class SKToDoListTableViewCell: UITableViewCell {
         self.addGestureRecognizer(rightSwipeGesture)
     }
     
+    // MARK: IBAction
+    @IBAction func pushedEditButton(sender: UIButton) {
+        
+    }
+    
     // MARK: UISwipeGestureRecognizer, UITapGestureRecognizer
     
     /**
