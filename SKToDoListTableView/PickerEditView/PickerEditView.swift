@@ -10,10 +10,14 @@ import UIKit
 
 protocol PickerEditViewDelegate {
     func adjustEditViewHeight(height: CGFloat)
+    
+    func changeTime(timeString: String)
 }
 
 extension PickerEditViewDelegate {
     func adjustEditViewHeight(height: CGFloat) {}
+    
+    func changeTime(timeString: String) {}
 }
 
 class PickerEditView: UIView {
@@ -56,22 +60,29 @@ class PickerEditView: UIView {
         self.timePickerBaseView.isHidden = true
     }
     
-    @IBAction private func pushedCalendarButton() {
+    func displayCalendarButton() {
         self.calendarBaseView.isHidden = !self.calendarBaseView.isHidden
         self.timePickerBaseView.isHidden = true
         UIView.animate(withDuration: ANIMATION_DURATION,
                        animations: {
-                        self.delegate?.adjustEditViewHeight(height: self.headerHeight.constant + self.calendarHeight.constant)
+                        self.delegate?.adjustEditViewHeight(height: self.calendarHeight.constant)
         }, completion: nil)
     }
     
-    @IBAction private func pushedTimePickerButton() {
+    func displayTimePickerButton() {
         self.calendarBaseView.isHidden = true
         self.timePickerBaseView.isHidden = !self.timePickerBaseView.isHidden
         UIView.animate(withDuration: ANIMATION_DURATION,
                        animations: {
-                        self.delegate?.adjustEditViewHeight(height: self.headerHeight.constant + self.timePickerHeight.constant)
+                        self.delegate?.adjustEditViewHeight(height: self.timePickerHeight.constant)
         }, completion: nil)
+    }
+    
+    /// datePickerの値が変更されたら呼ばれる
+    @IBAction private func didValueChangedDatePicker(_ sender: UIDatePicker) {
+        let formatter:DateFormatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
         
+        self.delegate?.changeTime(timeString: String(describing: sender.date))
     }
 }

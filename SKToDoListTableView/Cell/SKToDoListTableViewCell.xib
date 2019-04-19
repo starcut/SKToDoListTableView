@@ -46,10 +46,19 @@
                                     <action selector="pushedEditButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gOb-WS-4C2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YYYY/MM/dd HH:mmまで" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9G-ZB-aO9">
-                                <rect key="frame" x="63" y="29.5" width="177" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YYYY/MM/dd HH:mm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9G-ZB-aO9">
+                                <rect key="frame" x="93.5" y="29.5" width="146.5" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="zwv-k1-V82"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2V-21-Ixg">
+                                <rect key="frame" x="47.5" y="29.5" width="46" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="yYS-f5-Nas"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,11 +70,14 @@
                             <constraint firstItem="aOs-s9-CWQ" firstAttribute="leading" secondItem="79B-8Z-Cbv" secondAttribute="leading" id="1uR-Q2-bu8"/>
                             <constraint firstItem="fAz-UB-3lg" firstAttribute="leading" secondItem="aOs-s9-CWQ" secondAttribute="trailing" constant="10" id="583-q3-jCb"/>
                             <constraint firstItem="fAz-UB-3lg" firstAttribute="top" secondItem="79B-8Z-Cbv" secondAttribute="top" id="Avc-5O-TV1"/>
-                            <constraint firstItem="r9G-ZB-aO9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aOs-s9-CWQ" secondAttribute="bottom" constant="8" id="ENc-yy-My5"/>
+                            <constraint firstAttribute="bottom" secondItem="s2V-21-Ixg" secondAttribute="bottom" id="FP6-fA-KNl"/>
                             <constraint firstAttribute="trailing" secondItem="fAz-UB-3lg" secondAttribute="trailing" id="I2B-WA-HIQ"/>
+                            <constraint firstItem="s2V-21-Ixg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aOs-s9-CWQ" secondAttribute="bottom" constant="8" id="eHe-Mg-wLj"/>
                             <constraint firstItem="r9G-ZB-aO9" firstAttribute="trailing" secondItem="aOs-s9-CWQ" secondAttribute="trailing" id="hpd-xc-PFt"/>
+                            <constraint firstItem="r9G-ZB-aO9" firstAttribute="top" secondItem="s2V-21-Ixg" secondAttribute="top" id="sOo-lt-hyC"/>
                             <constraint firstItem="aOs-s9-CWQ" firstAttribute="top" secondItem="79B-8Z-Cbv" secondAttribute="top" id="sVA-A1-lzO"/>
                             <constraint firstAttribute="bottom" secondItem="r9G-ZB-aO9" secondAttribute="bottom" id="t3t-Af-9IU"/>
+                            <constraint firstItem="r9G-ZB-aO9" firstAttribute="leading" secondItem="s2V-21-Ixg" secondAttribute="trailing" id="uBG-Wa-hxo"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -83,7 +95,7 @@
                 <outlet property="arrowImageView" destination="20W-Pj-amD" id="hz0-mJ-QRr"/>
                 <outlet property="deadlineLabel" destination="r9G-ZB-aO9" id="R0h-hb-qH1"/>
                 <outlet property="deadlineLabelHeight" destination="zwv-k1-V82" id="WLN-HH-toe"/>
-                <outlet property="deadlineLabelTopMargin" destination="ENc-yy-My5" id="w7k-bc-OqO"/>
+                <outlet property="deadlineLabelTopMargin" destination="eHe-Mg-wLj" id="P0N-PO-RMi"/>
                 <outlet property="toDoTextLabel" destination="aOs-s9-CWQ" id="uCL-bL-dnf"/>
                 <outlet property="toDoTextLabelBottomMargin" destination="LpD-i7-rgk" id="9nD-kc-Run"/>
                 <outlet property="toDoTextLabelTopMargin" destination="BLa-VE-GHQ" id="Oyp-vU-bqE"/>

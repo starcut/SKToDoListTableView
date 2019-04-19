@@ -13,7 +13,6 @@
             <connections>
                 <outlet property="calendarBaseView" destination="5Ye-hX-UWu" id="a8O-ao-frE"/>
                 <outlet property="calendarHeight" destination="ijG-rb-CSr" id="YLh-FG-kQp"/>
-                <outlet property="headerHeight" destination="lmr-dY-Dpj" id="8gy-Tk-hFK"/>
                 <outlet property="timePicker" destination="ODL-IT-qPb" id="R7o-0e-q1s"/>
                 <outlet property="timePickerBaseView" destination="ILm-xE-N4q" id="cQO-uS-dNZ"/>
                 <outlet property="timePickerHeight" destination="HSX-iH-pBb" id="ZHK-31-K7m"/>
@@ -21,77 +20,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="319" height="455"/>
+            <rect key="frame" x="0.0" y="0.0" width="319" height="415"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lSS-sh-CXa">
-                    <rect key="frame" x="0.0" y="0.0" width="319" height="455"/>
+                    <rect key="frame" x="0.0" y="0.0" width="319" height="415"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfD-oc-MFv">
-                            <rect key="frame" x="0.0" y="0.0" width="319" height="40"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ne-om-ZkU">
-                                    <rect key="frame" x="0.0" y="0.0" width="108" height="40"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnd-dT-E0X">
-                                            <rect key="frame" x="20" y="10" width="78" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="Tnd-dT-E0X" firstAttribute="leading" secondItem="8ne-om-ZkU" secondAttribute="leading" constant="20" id="5gq-fl-7l5"/>
-                                        <constraint firstItem="Tnd-dT-E0X" firstAttribute="centerY" secondItem="8ne-om-ZkU" secondAttribute="centerY" id="9AP-jq-TTp"/>
-                                        <constraint firstAttribute="trailing" secondItem="Tnd-dT-E0X" secondAttribute="trailing" constant="10" id="zXw-vi-Qqn"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fO-RP-EcC">
-                                    <rect key="frame" x="108" y="0.0" width="126" height="40"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GP-DV-oLA">
-                                            <rect key="frame" x="0.0" y="5" width="116" height="30"/>
-                                            <state key="normal" title="YYYY/MM/dd"/>
-                                            <connections>
-                                                <action selector="pushedCalendarButton" destination="-1" eventType="touchUpInside" id="UEc-8o-ace"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="6GP-DV-oLA" firstAttribute="centerY" secondItem="1fO-RP-EcC" secondAttribute="centerY" id="Tsf-MB-0uI"/>
-                                        <constraint firstItem="6GP-DV-oLA" firstAttribute="leading" secondItem="1fO-RP-EcC" secondAttribute="leading" id="dhM-sJ-Tsy"/>
-                                        <constraint firstAttribute="width" constant="126" id="oVN-tg-uLd"/>
-                                        <constraint firstAttribute="trailing" secondItem="6GP-DV-oLA" secondAttribute="trailing" constant="10" id="w9W-IG-MBd"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bC-JQ-6Sb">
-                                    <rect key="frame" x="234" y="0.0" width="85" height="40"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkZ-br-7ce">
-                                            <rect key="frame" x="0.0" y="5" width="65" height="30"/>
-                                            <state key="normal" title="HH:mm"/>
-                                            <connections>
-                                                <action selector="pushedTimePickerButton" destination="-1" eventType="touchUpInside" id="YLq-2g-viL"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="LkZ-br-7ce" firstAttribute="leading" secondItem="7bC-JQ-6Sb" secondAttribute="leading" id="7M7-dW-0mx"/>
-                                        <constraint firstItem="LkZ-br-7ce" firstAttribute="centerY" secondItem="7bC-JQ-6Sb" secondAttribute="centerY" id="9rz-Zq-GbV"/>
-                                        <constraint firstAttribute="width" constant="85" id="SBx-U4-6a7"/>
-                                        <constraint firstAttribute="trailing" secondItem="LkZ-br-7ce" secondAttribute="trailing" constant="20" id="eYn-1V-oZc"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="lmr-dY-Dpj"/>
-                            </constraints>
-                        </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ye-hX-UWu">
-                            <rect key="frame" x="0.0" y="40" width="319" height="235"/>
+                            <rect key="frame" x="0.0" y="0.0" width="319" height="235"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zB0-hC-t7c" customClass="FSCalendar">
                                     <rect key="frame" x="0.0" y="0.0" width="319" height="235"/>
@@ -108,7 +44,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-xE-N4q">
-                            <rect key="frame" x="0.0" y="275" width="319" height="180"/>
+                            <rect key="frame" x="0.0" y="235" width="319" height="180"/>
                             <subviews>
                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ODL-IT-qPb">
                                     <rect key="frame" x="0.0" y="0.0" width="319" height="180"/>

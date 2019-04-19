@@ -87,7 +87,7 @@ class SKToDoListTableViewCell: UITableViewCell {
         self.priority = model.priority
         self.switchTextStyle(model: model)
         self.canExpand = false
-        self.deadlineLabel.text = "期限：" + model.deadline
+        self.deadlineLabel.text = model.deadline
         
         // セルの高さが未設定（初回）のみ行う
         if model.textHeight == 0.0 {

@@ -37,6 +37,11 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
     @IBOutlet weak var deadlineBaseView: UIView!
     // 期限に関して表示させるベースのビューの高さ
     @IBOutlet weak var deadlineHeight: NSLayoutConstraint!
+    // 期限のカレンダーボタン
+    @IBOutlet weak var calendarButton: UIButton!
+    // 期限の時間ボタン
+    @IBOutlet weak var timeButton: UIButton!
+    
     var delegate: ToDoEditViewDelegate?
     
     private var priorityButtons: [UIButton] = []
@@ -137,6 +142,14 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
         }
     }
     
+    @IBAction private func pushedCalendarButton() {
+        self.deadlineView.displayCalendarButton()
+    }
+    
+    @IBAction private func pushedTimePickerButton() {
+        self.deadlineView.displayTimePickerButton()
+    }
+    
     @IBAction private func pushedCancelButton() {
         self.delegate?.deleteEditView()
     }
@@ -154,5 +167,13 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
                        animations: {
                         self.deadlineHeight.constant = height
         }, completion: nil)
+    }
+    
+    func changeDate(dateString: String) {
+        self.calendarButton.setTitle(dateString, for: .normal)
+    }
+    
+    func changeTime(timeString: String) {
+        self.timeButton.setTitle(timeString, for: .normal)
     }
 }

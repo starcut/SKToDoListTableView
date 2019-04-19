@@ -11,12 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ToDoEditView" customModule="ToDoEditView">
             <connections>
-                <outlet property="deadlineBaseView" destination="3Nb-1v-jPo" id="IP6-Lj-afe"/>
-                <outlet property="deadlineHeight" destination="4Dh-QM-vqT" id="rdH-42-TzD"/>
+                <outlet property="calendarButton" destination="Sv2-Yv-Em1" id="isI-3R-TDq"/>
+                <outlet property="deadlineBaseView" destination="3jM-RP-CcG" id="BCe-KA-jBD"/>
+                <outlet property="deadlineHeight" destination="nf5-r5-Yov" id="CNv-YI-21f"/>
                 <outlet property="priorityEmergencyButton" destination="J94-tG-Tld" id="uYW-VN-QiG"/>
                 <outlet property="priorityHighButton" destination="E8e-bY-aaN" id="mcD-pE-IiG"/>
                 <outlet property="priorityLowButton" destination="p4G-ey-V0r" id="ChO-oO-DrX"/>
                 <outlet property="priorityMiddleButton" destination="JII-3J-JBb" id="Udf-rG-5Pl"/>
+                <outlet property="timeButton" destination="52w-kj-ceO" id="gZm-ik-ek3"/>
                 <outlet property="toDoTextField" destination="XAr-Lm-pmN" id="SKO-I8-n0c"/>
             </connections>
         </placeholder>
@@ -162,17 +164,87 @@
                                 <constraint firstItem="p4G-ey-V0r" firstAttribute="leading" secondItem="DFZ-b7-wSb" secondAttribute="leading" constant="20" id="z5x-in-3V6"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Nb-1v-jPo">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6op-Rz-XD7">
                             <rect key="frame" x="0.0" y="285" width="362" height="40"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="4Dh-QM-vqT"/>
-                            </constraints>
-                        </view>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQF-Lc-kdW">
+                                    <rect key="frame" x="0.0" y="0.0" width="362" height="40"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YD4-iI-PkB">
+                                            <rect key="frame" x="0.0" y="0.0" width="151" height="40"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0t-fY-Sak">
+                                                    <rect key="frame" x="20" y="10" width="121" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Q0t-fY-Sak" firstAttribute="leading" secondItem="YD4-iI-PkB" secondAttribute="leading" constant="20" id="9GQ-Eb-3PA"/>
+                                                <constraint firstItem="Q0t-fY-Sak" firstAttribute="centerY" secondItem="YD4-iI-PkB" secondAttribute="centerY" id="i2I-Zg-Ulu"/>
+                                                <constraint firstAttribute="trailing" secondItem="Q0t-fY-Sak" secondAttribute="trailing" constant="10" id="sED-ZU-01t"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wd1-Yl-vfH">
+                                            <rect key="frame" x="151" y="0.0" width="126" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sv2-Yv-Em1">
+                                                    <rect key="frame" x="0.0" y="5" width="116" height="30"/>
+                                                    <state key="normal" title="YYYY/MM/dd"/>
+                                                    <connections>
+                                                        <action selector="pushedCalendarButton" destination="-1" eventType="touchUpInside" id="IDT-NB-F5h"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Sv2-Yv-Em1" secondAttribute="trailing" constant="10" id="0xa-DJ-OxL"/>
+                                                <constraint firstItem="Sv2-Yv-Em1" firstAttribute="centerY" secondItem="Wd1-Yl-vfH" secondAttribute="centerY" id="Npg-K3-S8e"/>
+                                                <constraint firstItem="Sv2-Yv-Em1" firstAttribute="leading" secondItem="Wd1-Yl-vfH" secondAttribute="leading" id="VBi-v5-J2R"/>
+                                                <constraint firstAttribute="width" constant="126" id="aet-2v-bfS"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xc0-nv-2z6">
+                                            <rect key="frame" x="277" y="0.0" width="85" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52w-kj-ceO">
+                                                    <rect key="frame" x="0.0" y="5" width="65" height="30"/>
+                                                    <state key="normal" title="HH:mm"/>
+                                                    <connections>
+                                                        <action selector="pushedTimePickerButton" destination="-1" eventType="touchUpInside" id="z4N-Rq-SEn"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="52w-kj-ceO" firstAttribute="centerY" secondItem="xc0-nv-2z6" secondAttribute="centerY" id="50Q-xk-3o9"/>
+                                                <constraint firstAttribute="trailing" secondItem="52w-kj-ceO" secondAttribute="trailing" constant="20" id="Qw6-Xj-cyY"/>
+                                                <constraint firstAttribute="width" constant="85" id="U9Q-HD-Xhv"/>
+                                                <constraint firstItem="52w-kj-ceO" firstAttribute="leading" secondItem="xc0-nv-2z6" secondAttribute="leading" id="ows-0t-Ku6"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="JpF-t1-beB"/>
+                                    </constraints>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jM-RP-CcG">
+                                    <rect key="frame" x="0.0" y="40" width="362" height="0.0"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" id="nf5-r5-Yov"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                        </stackView>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="3Nb-1v-jPo" secondAttribute="bottom" id="uGD-CC-rQH"/>
-                    </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLy-8q-YpU">
                     <rect key="frame" x="0.0" y="325" width="362" height="60"/>

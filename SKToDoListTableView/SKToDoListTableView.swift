@@ -129,6 +129,10 @@ extension SKToDoListTableView: SKToDoListTableViewCellDelegate {
         editView.editingToDoNumber = row
         editView.toDoTextField.text = toDoText
         editView.selectedPriority = priority
+        
+        let deadlineArray: [Substring] = dealline.split(separator: " ")
+        editView.changeDate(dateString: String(deadlineArray[0]))
+        editView.changeTime(timeString: String(deadlineArray[1]))
         self.coverView.addSubview(editView)
     }
 }
