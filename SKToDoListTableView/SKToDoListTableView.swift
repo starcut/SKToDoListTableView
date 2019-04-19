@@ -126,6 +126,7 @@ extension SKToDoListTableView: SKToDoListTableViewCellDelegate {
                                    height: self.coverView.frame.height - 2 * editViewVerticalMargin)
         let editView: ToDoEditView = ToDoEditView.init(frame: editViewFrame)
         editView.delegate = self
+        editView.editingToDoNumber = row
         editView.toDoTextField.text = toDoText
         editView.selectedPriority = priority
         self.coverView.addSubview(editView)
@@ -138,5 +139,16 @@ extension SKToDoListTableView: ToDoEditViewDelegate {
             subview.removeFromSuperview()
         }
         self.coverView.removeFromSuperview()
+    }
+    
+    func setEditContents(row: Int, toDoText: String, priority: ToDoPriority, deadline: String) {
+        self.toDoListArray[row].text = toDoText
+        self.toDoListArray[row].priority = priority
+        self.toDoListArray[row].deadline = deadline
+        // テキストの高さをリセットする
+        self.toDoListArray[row].textHeight = 0.0
+        self.reloadData()
+        
+        self.deleteEditView()
     }
 }

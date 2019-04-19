@@ -9,16 +9,22 @@
 import UIKit
 
 protocol ToDoEditViewDelegate {
+    // ToDoEditViewを閉じる
     func deleteEditView()
+    // 編集した内容を反映させる
+    func setEditContents(row: Int, toDoText: String, priority: ToDoPriority, deadline: String)
 }
 
 extension ToDoEditViewDelegate {
+    // ToDoEditViewを閉じる
     func deleteEditView() {}
+    // 編集した内容を反映させる
+    func setEditContents(row: Int, toDoText: String, priority: ToDoPriority, deadline: String) {}
 }
 
 class ToDoEditView: UIView {
     //ToDo内容
-    @IBOutlet weak var toDoTextField: UITextField!
+    @IBOutlet weak var toDoTextField: UITextView!
     // 優先度ボタン（低）
     @IBOutlet weak var priorityLowButton: UIButton!
     // 優先度ボタン（中）
@@ -31,7 +37,9 @@ class ToDoEditView: UIView {
     var delegate: ToDoEditViewDelegate?
     
     private var priorityButtons: [UIButton] = []
-    
+    // 何番目のセルのデータを編集しているか
+    var editingToDoNumber: Int = -1
+    // 選択された優先順位
     var selectedPriority: ToDoPriority = .middlePriority
     // MARK: 初期化
     
@@ -82,6 +90,24 @@ class ToDoEditView: UIView {
         if isSelected {
             editButton.setTitleColor(.white, for: .normal)
             editButton.backgroundColor = editButton.borderColor
+            
+            switch editButton.tag {
+            case 1:
+                self.selectedPriority = .lowPriority
+                break
+            case 2:
+                self.selectedPriority = .middlePriority
+                break
+            case 3:
+                self.selectedPriority = .highPriority
+                break
+            case 4:
+                self.selectedPriority = .emergencyPriority
+                break
+            default:
+                self.selectedPriority = .middlePriority
+                break
+            }
         } else {
             editButton.setTitleColor(editButton.borderColor, for: .normal)
             editButton.backgroundColor = UIColor.clear
@@ -105,6 +131,9 @@ class ToDoEditView: UIView {
     }
     
     @IBAction private func pushedOkButton() {
-        self.delegate?.deleteEditView()
+        self.delegate?.setEditContents(row: self.editingToDoNumber,
+                                       toDoText: self.toDoTextField.text!,
+                                       priority: self.selectedPriority,
+                                       deadline: "")
     }
 }

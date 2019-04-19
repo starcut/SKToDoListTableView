@@ -15,7 +15,7 @@
                 <outlet property="priorityHighButton" destination="E8e-bY-aaN" id="mcD-pE-IiG"/>
                 <outlet property="priorityLowButton" destination="p4G-ey-V0r" id="ChO-oO-DrX"/>
                 <outlet property="priorityMiddleButton" destination="JII-3J-JBb" id="Udf-rG-5Pl"/>
-                <outlet property="toDoTextField" destination="eEw-p9-WUj" id="TdB-wh-osI"/>
+                <outlet property="toDoTextField" destination="XAr-Lm-pmN" id="SKO-I8-n0c"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -29,19 +29,30 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osz-2X-ktK">
                             <rect key="frame" x="0.0" y="0.0" width="362" height="145"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="ToDoを追加してください" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eEw-p9-WUj">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XAr-Lm-pmN">
                                     <rect key="frame" x="20" y="16" width="322" height="113"/>
-                                    <nil key="textColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="eEw-p9-WUj" firstAttribute="leading" secondItem="osz-2X-ktK" secondAttribute="leading" constant="20" id="DKq-7K-dcO"/>
-                                <constraint firstAttribute="bottom" secondItem="eEw-p9-WUj" secondAttribute="bottom" constant="16" id="L4f-ed-PE4"/>
-                                <constraint firstItem="eEw-p9-WUj" firstAttribute="top" secondItem="osz-2X-ktK" secondAttribute="top" constant="16" id="gVe-0k-ESB"/>
-                                <constraint firstAttribute="trailing" secondItem="eEw-p9-WUj" secondAttribute="trailing" constant="20" id="n1I-Vn-4DN"/>
+                                <constraint firstAttribute="trailing" secondItem="XAr-Lm-pmN" secondAttribute="trailing" constant="20" id="9Ha-KI-Dl6"/>
+                                <constraint firstItem="XAr-Lm-pmN" firstAttribute="leading" secondItem="osz-2X-ktK" secondAttribute="leading" constant="20" id="Nmr-hT-GDm"/>
+                                <constraint firstItem="XAr-Lm-pmN" firstAttribute="top" secondItem="osz-2X-ktK" secondAttribute="top" constant="16" id="Vox-jh-aJ3"/>
+                                <constraint firstAttribute="bottom" secondItem="XAr-Lm-pmN" secondAttribute="bottom" constant="16" id="dnr-1g-8RW"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFZ-b7-wSb">
