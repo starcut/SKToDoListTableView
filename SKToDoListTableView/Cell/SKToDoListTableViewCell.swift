@@ -15,6 +15,8 @@ protocol SKToDoListTableViewCellDelegate {
     func switchCompletionStatus(cell: SKToDoListTableViewCell)
     // 全文表示・正暦表示の切り替えを行う
     func switchExpandStatus(cell: SKToDoListTableViewCell)
+    // 編集ボタンが押された時のデリゲートメソッド
+    func pushedEditButton(row: Int, toDoText: String, priority: ToDoPriority, dealline: String)
 }
 
 extension SKToDoListTableViewCellDelegate {
@@ -24,6 +26,8 @@ extension SKToDoListTableViewCellDelegate {
     func switchCompletionStatus(cell: SKToDoListTableViewCell) {}
     // 全文表示・正暦表示の切り替えを行う
     func switchExpandStatus(cell: SKToDoListTableViewCell) {}
+    // 編集ボタンが押された時のデリゲートメソッド
+    func pushedEditButton(row: Int, toDoText: String, priority: ToDoPriority, dealline: String) {}
 }
 
 class SKToDoListTableViewCell: UITableViewCell {
@@ -45,6 +49,8 @@ class SKToDoListTableViewCell: UITableViewCell {
     var delegate: SKToDoListTableViewCellDelegate?
     // セルの位置情報
     var indexPath: IndexPath!
+    // ToDoの優先度
+    var priority: ToDoPriority = .middlePriority
     // 完了のテキストカラー
     private let COMPLETED_TEXT_COLOR: UIColor = .lightGray
     // アニメーションの時間
@@ -77,6 +83,7 @@ class SKToDoListTableViewCell: UITableViewCell {
      */
     func setCellConfigure(model: ToDoListModel, indexPath: IndexPath) {
         self.indexPath = indexPath
+        self.priority = model.priority
         self.switchTextStyle(model: model)
         self.canExpand = false
         self.deadlineLabel.text = "期限：" + model.deadline
@@ -237,8 +244,15 @@ class SKToDoListTableViewCell: UITableViewCell {
     }
     
     // MARK: IBAction
-    @IBAction func pushedEditButton(sender: UIButton) {
-        
+    
+    /**
+     * 編集ボタンが押された時の動作
+     */
+    @IBAction func pushedEditButton() {
+        self.delegate?.pushedEditButton(row: self.indexPath.row,
+                                        toDoText: self.toDoTextLabel.text!,
+                                        priority: self.priority,
+                                        dealline: self.deadlineLabel.text!)
     }
     
     // MARK: UISwipeGestureRecognizer, UITapGestureRecognizer

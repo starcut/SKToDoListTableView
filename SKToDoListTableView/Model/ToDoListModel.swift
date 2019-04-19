@@ -8,15 +8,15 @@
 
 import UIKit
 
+// ToDoの優先順位の列挙体
+public enum ToDoPriority: Int {
+    case lowPriority = 1
+    case middlePriority = 2
+    case highPriority = 3
+    case emergencyPriority = 4
+}
+
 class ToDoListModel: NSObject {
-    // ToDoの優先順位の列挙体
-    public enum ToDoPriority: Int {
-        case lowPriority = 1
-        case middlePriority = 2
-        case highPriority = 3
-        case emergencyPriority = 4
-    }
-    
     // ToDoリストの内容
     var text: String = "ToDoの内容が入力されていません"
     // ToDoリストの内容の全文表示時のラベルの高さ

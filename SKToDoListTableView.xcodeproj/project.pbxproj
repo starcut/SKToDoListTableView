@@ -14,6 +14,8 @@
 		7C9CA82E2260846800B4B57C /* SKToDoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C9CA82A2260846800B4B57C /* SKToDoListTableViewCell.xib */; };
 		7C9CA83022608B7100B4B57C /* ToDoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9CA82F22608B7100B4B57C /* ToDoListModel.swift */; };
 		7C9CA83122608B7100B4B57C /* ToDoListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9CA82F22608B7100B4B57C /* ToDoListModel.swift */; };
+		7CABA2212269564E0018B91B /* CALAyer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CABA2202269564E0018B91B /* CALAyer+Border.swift */; };
+		7CABA2222269564E0018B91B /* CALAyer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CABA2202269564E0018B91B /* CALAyer+Border.swift */; };
 		7CDD0C5522687D89008A04A4 /* ToDoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD0C5422687D89008A04A4 /* ToDoEditView.swift */; };
 		7CDD0C5622687D89008A04A4 /* ToDoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD0C5422687D89008A04A4 /* ToDoEditView.swift */; };
 		7CDD0C5922687DAB008A04A4 /* ToDoEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD0C5822687DAB008A04A4 /* ToDoEditView.xib */; };
@@ -37,6 +39,7 @@
 		7C9CA8292260846800B4B57C /* SKToDoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKToDoListTableViewCell.swift; sourceTree = "<group>"; };
 		7C9CA82A2260846800B4B57C /* SKToDoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SKToDoListTableViewCell.xib; sourceTree = "<group>"; };
 		7C9CA82F22608B7100B4B57C /* ToDoListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListModel.swift; sourceTree = "<group>"; };
+		7CABA2202269564E0018B91B /* CALAyer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALAyer+Border.swift"; sourceTree = "<group>"; };
 		7CDD0C5422687D89008A04A4 /* ToDoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoEditView.swift; sourceTree = "<group>"; };
 		7CDD0C5822687DAB008A04A4 /* ToDoEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoEditView.xib; sourceTree = "<group>"; };
 		7CF70A8122607C9B00667EC9 /* SKToDoListTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKToDoListTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +108,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7CABA21F226955FA0018B91B /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				7CABA2202269564E0018B91B /* CALAyer+Border.swift */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
 		7CDD0C5722687D93008A04A4 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +148,7 @@
 		7CF70A8322607C9B00667EC9 /* SKToDoListTableView */ = {
 			isa = PBXGroup;
 			children = (
+				7CABA21F226955FA0018B91B /* Additional */,
 				7C9CA8332260936400B4B57C /* Model */,
 				7C9CA8322260935800B4B57C /* Cell */,
 				7CF70A8422607C9B00667EC9 /* SKToDoListTableView.h */,
@@ -359,6 +371,7 @@
 				7CDD0C5622687D89008A04A4 /* ToDoEditView.swift in Sources */,
 				7CF70AA522607DC400667EC9 /* SKToDoListTableView.swift in Sources */,
 				7C9CA83022608B7100B4B57C /* ToDoListModel.swift in Sources */,
+				7CABA2222269564E0018B91B /* CALAyer+Border.swift in Sources */,
 				7C9CA82B2260846800B4B57C /* SKToDoListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +384,7 @@
 				7CF70AA622607DC400667EC9 /* SKToDoListTableView.swift in Sources */,
 				7CF70A9322607D8F00667EC9 /* AppDelegate.swift in Sources */,
 				7C9CA83122608B7100B4B57C /* ToDoListModel.swift in Sources */,
+				7CABA2212269564E0018B91B /* CALAyer+Border.swift in Sources */,
 				7CDD0C5522687D89008A04A4 /* ToDoEditView.swift in Sources */,
 				7C9CA82C2260846800B4B57C /* SKToDoListTableViewCell.swift in Sources */,
 			);

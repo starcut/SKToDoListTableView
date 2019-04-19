@@ -16,6 +16,7 @@ class SKToDoListTableView: UITableView {
     // ToDoリストの内容を格納した配列
     var toDoListArray: [ToDoListModel] = []
     
+    let coverView: UIView = UIView()
     // MARK: 初期化処理
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -110,5 +111,32 @@ extension SKToDoListTableView: SKToDoListTableViewCellDelegate {
         }) { (isFinished) in
             cell.updateCompletion()
         }
+    }
+    
+    func pushedEditButton(row: Int, toDoText: String, priority: ToDoPriority, dealline: String) {
+        self.coverView.frame = UIScreen.main.bounds
+        self.coverView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        self.window?.addSubview(self.coverView)
+        
+        let editViewHorizontalMargin: CGFloat = 16
+        let editViewVerticalMargin: CGFloat = 64
+        let editViewFrame = CGRect(x: editViewHorizontalMargin,
+                                   y: editViewVerticalMargin,
+                                   width: self.coverView.frame.width - 2 * editViewHorizontalMargin,
+                                   height: self.coverView.frame.height - 2 * editViewVerticalMargin)
+        let editView: ToDoEditView = ToDoEditView.init(frame: editViewFrame)
+        editView.delegate = self
+        editView.toDoTextField.text = toDoText
+        editView.selectedPriority = priority
+        self.coverView.addSubview(editView)
+    }
+}
+
+extension SKToDoListTableView: ToDoEditViewDelegate {
+    func deleteEditView() {
+        for subview in self.coverView.subviews {
+            subview.removeFromSuperview()
+        }
+        self.coverView.removeFromSuperview()
     }
 }
