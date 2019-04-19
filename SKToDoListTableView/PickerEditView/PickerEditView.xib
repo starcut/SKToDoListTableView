@@ -20,18 +20,18 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="319" height="415"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lSS-sh-CXa">
-                    <rect key="frame" x="0.0" y="0.0" width="319" height="415"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ye-hX-UWu">
-                            <rect key="frame" x="0.0" y="0.0" width="319" height="235"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="235"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zB0-hC-t7c" customClass="FSCalendar">
-                                    <rect key="frame" x="0.0" y="0.0" width="319" height="235"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="235"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,15 +44,18 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-xE-N4q">
-                            <rect key="frame" x="0.0" y="235" width="319" height="180"/>
+                            <rect key="frame" x="0.0" y="235" width="320" height="180"/>
                             <subviews>
                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ODL-IT-qPb">
-                                    <rect key="frame" x="0.0" y="0.0" width="319" height="180"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <date key="date" timeIntervalSinceReferenceDate="577348791.10528195">
                                         <!--2019-04-19 06:39:51 +0000-->
                                     </date>
                                     <locale key="locale" localeIdentifier="ja_JP"/>
+                                    <connections>
+                                        <action selector="didValueChangedDatePicker:" destination="-1" eventType="valueChanged" id="4Am-IT-hco"/>
+                                    </connections>
                                 </datePicker>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,6 +66,11 @@
                                 <constraint firstAttribute="bottom" secondItem="ODL-IT-qPb" secondAttribute="bottom" id="knL-El-jL3"/>
                                 <constraint firstItem="ODL-IT-qPb" firstAttribute="leading" secondItem="ILm-xE-N4q" secondAttribute="leading" id="u5v-qz-aof"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                 </stackView>

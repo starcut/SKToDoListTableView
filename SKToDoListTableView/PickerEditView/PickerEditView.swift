@@ -81,8 +81,7 @@ class PickerEditView: UIView {
     /// datePickerの値が変更されたら呼ばれる
     @IBAction private func didValueChangedDatePicker(_ sender: UIDatePicker) {
         let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        
-        self.delegate?.changeTime(timeString: String(describing: sender.date))
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+        self.delegate?.changeTime(timeString: formatter.string(from: sender.date))
     }
 }

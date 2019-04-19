@@ -24,17 +24,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="362" height="385"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="377"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fmg-jL-7xQ">
-                    <rect key="frame" x="0.0" y="0.0" width="362" height="325"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="317"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osz-2X-ktK">
-                            <rect key="frame" x="0.0" y="0.0" width="362" height="165"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XAr-Lm-pmN">
-                                    <rect key="frame" x="20" y="16" width="322" height="133"/>
+                                    <rect key="frame" x="20" y="16" width="280" height="125"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -60,16 +60,16 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFZ-b7-wSb">
-                            <rect key="frame" x="0.0" y="165" width="362" height="120"/>
+                            <rect key="frame" x="0.0" y="157" width="320" height="120"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="優先度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgy-mn-6Df">
-                                    <rect key="frame" x="155" y="8" width="52" height="20.5"/>
+                                    <rect key="frame" x="134" y="8" width="52" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4G-ey-V0r">
-                                    <rect key="frame" x="20" y="36.5" width="151" height="33"/>
+                                    <rect key="frame" x="20" y="36.5" width="130" height="33"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <state key="normal" title="低">
@@ -88,7 +88,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JII-3J-JBb">
-                                    <rect key="frame" x="191" y="36.5" width="151" height="33"/>
+                                    <rect key="frame" x="170" y="36.5" width="130" height="33"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <state key="normal" title="中">
@@ -107,7 +107,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8e-bY-aaN">
-                                    <rect key="frame" x="20" y="81.5" width="151" height="33"/>
+                                    <rect key="frame" x="20" y="81.5" width="130" height="33"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <state key="normal" title="高">
@@ -126,7 +126,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J94-tG-Tld">
-                                    <rect key="frame" x="191" y="81.5" width="151" height="33"/>
+                                    <rect key="frame" x="170" y="81.5" width="130" height="33"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <state key="normal" title="緊急">
@@ -165,16 +165,16 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6op-Rz-XD7">
-                            <rect key="frame" x="0.0" y="285" width="362" height="40"/>
+                            <rect key="frame" x="0.0" y="277" width="320" height="40"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQF-Lc-kdW">
-                                    <rect key="frame" x="0.0" y="0.0" width="362" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YD4-iI-PkB">
-                                            <rect key="frame" x="0.0" y="0.0" width="151" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="109" height="40"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期限" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0t-fY-Sak">
-                                                    <rect key="frame" x="20" y="10" width="121" height="20.5"/>
+                                                    <rect key="frame" x="20" y="10" width="79" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -188,7 +188,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wd1-Yl-vfH">
-                                            <rect key="frame" x="151" y="0.0" width="126" height="40"/>
+                                            <rect key="frame" x="109" y="0.0" width="126" height="40"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sv2-Yv-Em1">
                                                     <rect key="frame" x="0.0" y="5" width="116" height="30"/>
@@ -207,7 +207,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xc0-nv-2z6">
-                                            <rect key="frame" x="277" y="0.0" width="85" height="40"/>
+                                            <rect key="frame" x="235" y="0.0" width="85" height="40"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52w-kj-ceO">
                                                     <rect key="frame" x="0.0" y="5" width="65" height="30"/>
@@ -230,11 +230,11 @@
                                         <constraint firstAttribute="height" constant="40" id="JpF-t1-beB"/>
                                     </constraints>
                                 </stackView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jM-RP-CcG">
-                                    <rect key="frame" x="0.0" y="40" width="362" height="0.0"/>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jM-RP-CcG">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" id="nf5-r5-Yov"/>
+                                        <constraint firstAttribute="height" constant="415" id="nf5-r5-Yov"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -247,17 +247,17 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLy-8q-YpU">
-                    <rect key="frame" x="0.0" y="325" width="362" height="60"/>
+                    <rect key="frame" x="0.0" y="317" width="320" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WN3-E5-BhC">
-                            <rect key="frame" x="191" y="15" width="151" height="30"/>
+                            <rect key="frame" x="170" y="15" width="130" height="30"/>
                             <state key="normal" title="OK"/>
                             <connections>
                                 <action selector="pushedOkButton" destination="-1" eventType="touchUpInside" id="X2H-uO-NzL"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZK-eX-2X4">
-                            <rect key="frame" x="20" y="15" width="151" height="30"/>
+                            <rect key="frame" x="20" y="15" width="130" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="NXp-0a-wTT"/>
                             </constraints>
@@ -292,7 +292,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="175.36231884057972" y="179.79910714285714"/>
+            <point key="canvasLocation" x="175.36231884057972" y="176.45089285714286"/>
         </view>
     </objects>
 </document>

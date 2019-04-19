@@ -158,11 +158,12 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
         self.delegate?.setEditContents(row: self.editingToDoNumber,
                                        toDoText: self.toDoTextField.text!,
                                        priority: self.selectedPriority,
-                                       deadline: "")
+                                       deadline: String.init(format: "%@ %@", (self.calendarButton.titleLabel?.text)!, (self.timeButton.titleLabel?.text)!))
     }
     
     // MARK: PickerEditViewDelegate
     func adjustEditViewHeight(height: CGFloat) {
+        self.deadlineBaseView.isHidden = (height == 0)
         UIView.animate(withDuration: ANIMATION_DURATION,
                        animations: {
                         self.deadlineHeight.constant = height
