@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickerEditView" customModule="Demo" customModuleProvider="target">
             <connections>
+                <outlet property="calendar" destination="zB0-hC-t7c" id="zEZ-2W-wUq"/>
                 <outlet property="calendarBaseView" destination="5Ye-hX-UWu" id="a8O-ao-frE"/>
                 <outlet property="calendarHeight" destination="ijG-rb-CSr" id="YLh-FG-kQp"/>
                 <outlet property="timePicker" destination="ODL-IT-qPb" id="R7o-0e-q1s"/>
@@ -46,11 +47,11 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILm-xE-N4q">
                             <rect key="frame" x="0.0" y="235" width="320" height="180"/>
                             <subviews>
-                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ODL-IT-qPb">
+                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODL-IT-qPb">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <date key="date" timeIntervalSinceReferenceDate="577348791.10528195">
-                                        <!--2019-04-19 06:39:51 +0000-->
+                                    <date key="date" timeIntervalSinceReferenceDate="577292511.10528195">
+                                        <!--2019-04-18 15:01:51 +0000-->
                                     </date>
                                     <locale key="locale" localeIdentifier="ja_JP"/>
                                     <connections>
