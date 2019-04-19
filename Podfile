@@ -5,8 +5,10 @@ use_frameworks!
 
 target 'Demo' do
   pod 'SKPaddingLabel'
+  pod 'FSCalendar'
 end
 
 target 'SKToDoListTableView' do
   pod 'SKPaddingLabel'
+  pod 'FSCalendar'
 end

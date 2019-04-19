@@ -22,7 +22,7 @@ extension ToDoEditViewDelegate {
     func setEditContents(row: Int, toDoText: String, priority: ToDoPriority, deadline: String) {}
 }
 
-class ToDoEditView: UIView {
+class ToDoEditView: UIView, PickerEditViewDelegate {
     //ToDo内容
     @IBOutlet weak var toDoTextField: UITextView!
     // 優先度ボタン（低）
@@ -33,7 +33,10 @@ class ToDoEditView: UIView {
     @IBOutlet weak var priorityHighButton: UIButton!
     // 優先度ボタン（緊急）
     @IBOutlet weak var priorityEmergencyButton: UIButton!
-    
+    // 期限に関して表示させるベースのビュー
+    @IBOutlet weak var deadlineBaseView: UIView!
+    // 期限に関して表示させるベースのビューの高さ
+    @IBOutlet weak var deadlineHeight: NSLayoutConstraint!
     var delegate: ToDoEditViewDelegate?
     
     private var priorityButtons: [UIButton] = []
@@ -41,6 +44,8 @@ class ToDoEditView: UIView {
     var editingToDoNumber: Int = -1
     // 選択された優先順位
     var selectedPriority: ToDoPriority = .middlePriority
+    // 期限のビュー
+    var deadlineView: PickerEditView!
     // MARK: 初期化
     
     override init(frame: CGRect) {
@@ -74,6 +79,12 @@ class ToDoEditView: UIView {
             self.setConfigSelectedButton(editButton: self.priorityButtons[3], isSelected: true)
             break
         }
+        
+        var frame: CGRect = self.deadlineBaseView.bounds
+        frame.size = CGSize(width: self.bounds.width, height: self.deadlineBaseView.bounds.height)
+        self.deadlineView = PickerEditView.init(frame: frame)
+        self.deadlineView.delegate = self
+        self.deadlineBaseView.addSubview(self.deadlineView)
     }
     
     // MARK: Private Method
@@ -135,5 +146,13 @@ class ToDoEditView: UIView {
                                        toDoText: self.toDoTextField.text!,
                                        priority: self.selectedPriority,
                                        deadline: "")
+    }
+    
+    // MARK: PickerEditViewDelegate
+    func adjustEditViewHeight(height: CGFloat) {
+        UIView.animate(withDuration: ANIMATION_DURATION,
+                       animations: {
+                        self.deadlineHeight.constant = height
+        }, completion: nil)
     }
 }

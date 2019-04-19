@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B40AEB6AF566BC65D46164336346D653"
+               BlueprintIdentifier = "B84EB7897916FCDEA3705C281B3700E7"
                BuildableName = "SKPaddingLabel.framework"
                BlueprintName = "SKPaddingLabel"
                ReferencedContainer = "container:Pods.xcodeproj">

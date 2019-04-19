@@ -8,6 +8,9 @@
 
 import UIKit
 
+// アニメーションの時間
+let ANIMATION_DURATION: TimeInterval = 0.2
+
 protocol SKToDoListTableViewCellDelegate {
     // toDoTextLabelの行数や高さを設定する
     func setToDoTextLabelHeight(cell: SKToDoListTableViewCell, labelHeight: CGFloat, linesNumber: Int)
@@ -53,8 +56,6 @@ class SKToDoListTableViewCell: UITableViewCell {
     var priority: ToDoPriority = .middlePriority
     // 完了のテキストカラー
     private let COMPLETED_TEXT_COLOR: UIColor = .lightGray
-    // アニメーションの時間
-    private let ANIMATION_DURATION: TimeInterval = 0.2
     // テキストからラベルの高さを取得する際、少しゆとりをもつための値
     private let LABEL_HEIGHT_FIXED: CGFloat = 2.0
     // アニメーション中など、セルを広げる処理が可能なタイミングかどうか
