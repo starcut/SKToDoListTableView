@@ -238,9 +238,7 @@ class ToDoEditView: UIView {
      * datePickerの値が変更されたら呼ばれる
      */
     @IBAction private func didValueChangedDatePicker(_ sender: UIDatePicker) {
-        let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
-        self.changeTime(timeString: formatter.string(from: sender.date))
+        self.changeTime(timeString: Util.createTimeStringDateAndTime(date: sender.date, identifier: "ja_JP"))
     }
     
     // MARK: PickerEditViewDelegate
@@ -268,8 +266,6 @@ class ToDoEditView: UIView {
 
 extension ToDoEditView: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "YYYY/MM/dd", options: 0, locale: Locale(identifier: "ja_JP"))
-        self.changeDate(dateString: formatter.string(from: date))
+        self.changeDate(dateString: Util.createDateStringDateAndTime(date: date, identifier: "ja_JP"))
     }
 }
