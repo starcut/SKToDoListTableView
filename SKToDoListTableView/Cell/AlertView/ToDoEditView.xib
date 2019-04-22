@@ -11,24 +11,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ToDoEditView" customModule="ToDoEditView">
             <connections>
+                <outlet property="calendar" destination="phu-38-AgF" id="Oln-tg-X1L"/>
                 <outlet property="calendarButton" destination="Sv2-Yv-Em1" id="isI-3R-TDq"/>
-                <outlet property="deadlineBaseView" destination="3jM-RP-CcG" id="BCe-KA-jBD"/>
-                <outlet property="deadlineHeight" destination="nf5-r5-Yov" id="CNv-YI-21f"/>
                 <outlet property="priorityEmergencyButton" destination="J94-tG-Tld" id="uYW-VN-QiG"/>
                 <outlet property="priorityHighButton" destination="E8e-bY-aaN" id="mcD-pE-IiG"/>
                 <outlet property="priorityLowButton" destination="p4G-ey-V0r" id="ChO-oO-DrX"/>
                 <outlet property="priorityMiddleButton" destination="JII-3J-JBb" id="Udf-rG-5Pl"/>
                 <outlet property="timeButton" destination="52w-kj-ceO" id="gZm-ik-ek3"/>
+                <outlet property="timePicker" destination="62z-U6-Ubd" id="lFj-QW-BnE"/>
                 <outlet property="toDoTextField" destination="XAr-Lm-pmN" id="SKO-I8-n0c"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="377"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="792"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fmg-jL-7xQ">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="317"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="732"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osz-2X-ktK">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
@@ -165,7 +165,7 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6op-Rz-XD7">
-                            <rect key="frame" x="0.0" y="277" width="320" height="40"/>
+                            <rect key="frame" x="0.0" y="277" width="320" height="455"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQF-Lc-kdW">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -230,24 +230,33 @@
                                         <constraint firstAttribute="height" constant="40" id="JpF-t1-beB"/>
                                     </constraints>
                                 </stackView>
-                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jM-RP-CcG">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="415"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phu-38-AgF" customClass="FSCalendar">
+                                    <rect key="frame" x="0.0" y="40" width="320" height="235"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="415" id="nf5-r5-Yov"/>
+                                        <constraint firstAttribute="height" constant="235" id="XEs-l7-NwB"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
+                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62z-U6-Ubd">
+                                    <rect key="frame" x="0.0" y="275" width="320" height="180"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="180" id="ZcD-P5-Byr"/>
+                                    </constraints>
+                                    <date key="date" timeIntervalSinceReferenceDate="577292511.10528195">
+                                        <!--2019-04-18 15:01:51 +0000-->
+                                    </date>
+                                    <locale key="locale" localeIdentifier="ja_JP"/>
+                                    <connections>
+                                        <action selector="didValueChangedDatePicker:" destination="-1" eventType="valueChanged" id="9g7-Dx-Sa4"/>
+                                    </connections>
+                                </datePicker>
                             </subviews>
                         </stackView>
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLy-8q-YpU">
-                    <rect key="frame" x="0.0" y="317" width="320" height="60"/>
+                    <rect key="frame" x="0.0" y="732" width="320" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WN3-E5-BhC">
                             <rect key="frame" x="170" y="15" width="130" height="30"/>

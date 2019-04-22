@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2DBED76A780E6EF05F7154C8 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A42C4C0363584673CCA59C /* Pods_Demo.framework */; };
-		7C0BC9E52269AA1800A3402A /* PickerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BC9E32269AA1700A3402A /* PickerEditView.swift */; };
-		7C0BC9E62269AA1800A3402A /* PickerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0BC9E32269AA1700A3402A /* PickerEditView.swift */; };
-		7C0BC9E72269AA1800A3402A /* PickerEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0BC9E42269AA1800A3402A /* PickerEditView.xib */; };
-		7C0BC9E82269AA1800A3402A /* PickerEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0BC9E42269AA1800A3402A /* PickerEditView.xib */; };
 		7C0BC9EA2269B7EE00A3402A /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0BC9E92269B7EE00A3402A /* FSCalendar.framework */; };
 		7C9CA82B2260846800B4B57C /* SKToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9CA8292260846800B4B57C /* SKToDoListTableViewCell.swift */; };
 		7C9CA82C2260846800B4B57C /* SKToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9CA8292260846800B4B57C /* SKToDoListTableViewCell.swift */; };
@@ -41,8 +37,6 @@
 		0BEF286E6D45EC01B744E1D3 /* Pods-SKToDoListTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKToDoListTableView.debug.xcconfig"; path = "Target Support Files/Pods-SKToDoListTableView/Pods-SKToDoListTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		38321E663C93A566B727BC91 /* Pods-SKToDoListTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKToDoListTableView.release.xcconfig"; path = "Target Support Files/Pods-SKToDoListTableView/Pods-SKToDoListTableView.release.xcconfig"; sourceTree = "<group>"; };
 		4E5ABEAE9E78F2DCCB493C6B /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		7C0BC9E32269AA1700A3402A /* PickerEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerEditView.swift; sourceTree = "<group>"; };
-		7C0BC9E42269AA1800A3402A /* PickerEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerEditView.xib; sourceTree = "<group>"; };
 		7C0BC9E92269B7EE00A3402A /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9CA8292260846800B4B57C /* SKToDoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKToDoListTableViewCell.swift; sourceTree = "<group>"; };
 		7C9CA82A2260846800B4B57C /* SKToDoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SKToDoListTableViewCell.xib; sourceTree = "<group>"; };
@@ -97,15 +91,6 @@
 				38321E663C93A566B727BC91 /* Pods-SKToDoListTableView.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		7C8B0F512269A757005855EB /* PickerEditView */ = {
-			isa = PBXGroup;
-			children = (
-				7C0BC9E32269AA1700A3402A /* PickerEditView.swift */,
-				7C0BC9E42269AA1800A3402A /* PickerEditView.xib */,
-			);
-			path = PickerEditView;
 			sourceTree = "<group>";
 		};
 		7C9CA8322260935800B4B57C /* Cell */ = {
@@ -166,7 +151,6 @@
 		7CF70A8322607C9B00667EC9 /* SKToDoListTableView */ = {
 			isa = PBXGroup;
 			children = (
-				7C8B0F512269A757005855EB /* PickerEditView */,
 				7CABA21F226955FA0018B91B /* Additional */,
 				7C9CA8332260936400B4B57C /* Model */,
 				7C9CA8322260935800B4B57C /* Cell */,
@@ -295,7 +279,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C0BC9E82269AA1800A3402A /* PickerEditView.xib in Resources */,
 				7CDD0C5A22687DAB008A04A4 /* ToDoEditView.xib in Resources */,
 				7C9CA82D2260846800B4B57C /* SKToDoListTableViewCell.xib in Resources */,
 			);
@@ -305,7 +288,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C0BC9E72269AA1800A3402A /* PickerEditView.xib in Resources */,
 				7CF70A9D22607D9000667EC9 /* LaunchScreen.storyboard in Resources */,
 				7CF70A9A22607D9000667EC9 /* Assets.xcassets in Resources */,
 				7CF70A9822607D8F00667EC9 /* Main.storyboard in Resources */,
@@ -396,7 +378,6 @@
 				7CF70AA522607DC400667EC9 /* SKToDoListTableView.swift in Sources */,
 				7C9CA83022608B7100B4B57C /* ToDoListModel.swift in Sources */,
 				7CABA2222269564E0018B91B /* CALAyer+Border.swift in Sources */,
-				7C0BC9E62269AA1800A3402A /* PickerEditView.swift in Sources */,
 				7C9CA82B2260846800B4B57C /* SKToDoListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,7 +392,6 @@
 				7C9CA83122608B7100B4B57C /* ToDoListModel.swift in Sources */,
 				7CABA2212269564E0018B91B /* CALAyer+Border.swift in Sources */,
 				7CDD0C5522687D89008A04A4 /* ToDoEditView.swift in Sources */,
-				7C0BC9E52269AA1800A3402A /* PickerEditView.swift in Sources */,
 				7C9CA82C2260846800B4B57C /* SKToDoListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

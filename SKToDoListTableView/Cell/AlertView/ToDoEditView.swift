@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FSCalendar
 
 protocol ToDoEditViewDelegate {
     // ToDoEditViewを閉じる
@@ -22,7 +23,7 @@ extension ToDoEditViewDelegate {
     func setEditContents(row: Int, toDoText: String, priority: ToDoPriority, deadline: String) {}
 }
 
-class ToDoEditView: UIView, PickerEditViewDelegate {
+class ToDoEditView: UIView {
     //ToDo内容
     @IBOutlet weak var toDoTextField: UITextView!
     // 優先度ボタン（低）
@@ -33,10 +34,10 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
     @IBOutlet private weak var priorityHighButton: UIButton!
     // 優先度ボタン（緊急）
     @IBOutlet private weak var priorityEmergencyButton: UIButton!
-    // 期限に関して表示させるベースのビュー
-    @IBOutlet private weak var deadlineBaseView: UIView!
-    // 期限に関して表示させるベースのビューの高さ
-    @IBOutlet private weak var deadlineHeight: NSLayoutConstraint!
+    // カレンダー
+    @IBOutlet private weak var calendar: FSCalendar!
+    // 時間のPicker
+    @IBOutlet private weak var timePicker: UIDatePicker!
     // 期限のカレンダーボタン
     @IBOutlet private weak var calendarButton: UIButton!
     // 期限の時間ボタン
@@ -51,8 +52,6 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
     private let KEYBOARD_TOOL_BAR_HEIGHT: CGFloat = 40
     // 優先度ボタンを格納する配列
     private var priorityButtons: [UIButton] = []
-    // 期限のビュー
-    private var deadlineView: PickerEditView!
     
     // MARK: 初期化
     
@@ -88,17 +87,16 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
             break
         }
         
-        var frame: CGRect = self.deadlineBaseView.bounds
-        frame.size = CGSize(width: self.bounds.width, height: self.deadlineBaseView.bounds.height)
-        self.deadlineView = PickerEditView.init(frame: frame)
-        self.deadlineView.delegate = self
-        self.deadlineBaseView.addSubview(self.deadlineView)
+        self.calendar.delegate = self
+        
+        self.calendar.isHidden = true
+        self.timePicker.isHidden = true
     }
     
     // MARK: Private Method
     
     /**
-     * 共通の初期化処理「
+     * 共通の初期化処理
      */
     private func commonInit() {
         let view = Bundle.main.loadNibNamed(String(describing: type(of: self)),
@@ -134,7 +132,7 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
     /**
      * 完了ボタンをタップした時の処理
      */
-    @objc private func pushedCompletionButton (){
+    @objc private func pushedCompletionButton() {
         self.endEditing(true)
     }
     
@@ -189,14 +187,22 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
      * 日付を変更するボタンをタップした時の処理
      */
     @IBAction private func pushedCalendarButton() {
-        self.deadlineView.displayCalendarButton()
+        UIView.animate(withDuration: ANIMATION_DURATION,
+                       animations: {
+                        self.calendar.isHidden = !self.calendar.isHidden
+                        self.timePicker.isHidden = true
+        }, completion: nil)
     }
     
     /**
      * 時間を編集するボタンをタップした時の処理
      */
     @IBAction private func pushedTimePickerButton() {
-        self.deadlineView.displayTimePickerButton()
+        UIView.animate(withDuration: ANIMATION_DURATION,
+                       animations: {
+                        self.calendar.isHidden = true
+                        self.timePicker.isHidden = !self.timePicker.isHidden
+        }, completion: nil)
     }
     
     /**
@@ -216,21 +222,16 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
                                        deadline: String.init(format: "%@ %@", (self.calendarButton.titleLabel?.text)!, (self.timeButton.titleLabel?.text)!))
     }
     
-    // MARK: PickerEditViewDelegate
-    
     /**
-     * 期日の編集を行うビューの高さを修正する
-     *
-     * - Parameters:
-     *  - height:       期日の編集を行うビューの高さ
+     * datePickerの値が変更されたら呼ばれる
      */
-    func adjustEditViewHeight(height: CGFloat) {
-        self.deadlineBaseView.isHidden = (height == 0)
-        UIView.animate(withDuration: ANIMATION_DURATION,
-                       animations: {
-                        self.deadlineHeight.constant = height
-        }, completion: nil)
+    @IBAction private func didValueChangedDatePicker(_ sender: UIDatePicker) {
+        let formatter:DateFormatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+        self.changeTime(timeString: formatter.string(from: sender.date))
     }
+    
+    // MARK: PickerEditViewDelegate
     
     /**
      * 日付の文字列を修正する
@@ -250,5 +251,13 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
      */
     func changeTime(timeString: String) {
         self.timeButton.setTitle(timeString, for: .normal)
+    }
+}
+
+extension ToDoEditView: FSCalendarDelegate {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let formatter:DateFormatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "YYYY/MM/dd", options: 0, locale: Locale(identifier: "ja_JP"))
+        self.changeDate(dateString: formatter.string(from: date))
     }
 }
