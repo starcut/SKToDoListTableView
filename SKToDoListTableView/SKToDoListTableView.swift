@@ -10,13 +10,14 @@ import UIKit
 
 class SKToDoListTableView: UITableView {
     // ToDoリストのセル識別子
-    let TO_DO_LIST_TABLE_VIEW_CELL: String = "SKToDoListTableViewCell"
+    private let TO_DO_LIST_TABLE_VIEW_CELL: String = "SKToDoListTableViewCell"
     // デフォルトのセルの高さ
-    let DEFAULT_CELL_HEIGHT: CGFloat = 66.0
+    private let DEFAULT_CELL_HEIGHT: CGFloat = 66.0
     // ToDoリストの内容を格納した配列
-    var toDoListArray: [ToDoListModel] = []
+    private var toDoListArray: [ToDoListModel] = []
+    // ToDoEditViewを表示する時のグレーのビュー
+    private let coverView: UIView = UIView()
     
-    let coverView: UIView = UIView()
     // MARK: 初期化処理
     
     override init(frame: CGRect, style: UITableView.Style) {

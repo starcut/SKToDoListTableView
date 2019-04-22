@@ -26,31 +26,34 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
     //ToDo内容
     @IBOutlet weak var toDoTextField: UITextView!
     // 優先度ボタン（低）
-    @IBOutlet weak var priorityLowButton: UIButton!
+    @IBOutlet private weak var priorityLowButton: UIButton!
     // 優先度ボタン（中）
-    @IBOutlet weak var priorityMiddleButton: UIButton!
+    @IBOutlet private weak var priorityMiddleButton: UIButton!
     // 優先度ボタン（高）
-    @IBOutlet weak var priorityHighButton: UIButton!
+    @IBOutlet private weak var priorityHighButton: UIButton!
     // 優先度ボタン（緊急）
-    @IBOutlet weak var priorityEmergencyButton: UIButton!
+    @IBOutlet private weak var priorityEmergencyButton: UIButton!
     // 期限に関して表示させるベースのビュー
-    @IBOutlet weak var deadlineBaseView: UIView!
+    @IBOutlet private weak var deadlineBaseView: UIView!
     // 期限に関して表示させるベースのビューの高さ
-    @IBOutlet weak var deadlineHeight: NSLayoutConstraint!
+    @IBOutlet private weak var deadlineHeight: NSLayoutConstraint!
     // 期限のカレンダーボタン
-    @IBOutlet weak var calendarButton: UIButton!
+    @IBOutlet private weak var calendarButton: UIButton!
     // 期限の時間ボタン
-    @IBOutlet weak var timeButton: UIButton!
+    @IBOutlet private weak var timeButton: UIButton!
     
     var delegate: ToDoEditViewDelegate?
-    
-    private var priorityButtons: [UIButton] = []
     // 何番目のセルのデータを編集しているか
     var editingToDoNumber: Int = -1
     // 選択された優先順位
     var selectedPriority: ToDoPriority = .middlePriority
+    // キーボードのツールバーの高さ
+    private let KEYBOARD_TOOL_BAR_HEIGHT: CGFloat = 40
+    // 優先度ボタンを格納する配列
+    private var priorityButtons: [UIButton] = []
     // 期限のビュー
-    var deadlineView: PickerEditView!
+    private var deadlineView: PickerEditView!
+    
     // MARK: 初期化
     
     override init(frame: CGRect) {
@@ -94,14 +97,54 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
     
     // MARK: Private Method
     
+    /**
+     * 共通の初期化処理「
+     */
     private func commonInit() {
         let view = Bundle.main.loadNibNamed(String(describing: type(of: self)),
                                             owner: self,
                                             options: nil)?.first as! UIView
         view.frame = self.bounds
         self.addSubview(view)
+        
+        self.setToobBarInTextField()
     }
     
+    /**
+     * テキストフィールドにツールバーをセットする
+     */
+    private func setToobBarInTextField() {
+        // 仮のサイズでツールバー生成
+        let kbToolBar = UIToolbar(frame: CGRect(x: 0,
+                                                y: 0,
+                                                width: UIScreen.main.bounds.width,
+                                                height: KEYBOARD_TOOL_BAR_HEIGHT))
+        kbToolBar.barStyle = UIBarStyle.default  // スタイルを設定
+        
+        // スペーサー
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        
+        // 閉じるボタン
+        let completionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(pushedCompletionButton))
+        
+        kbToolBar.items = [spacer, completionButton]
+        self.toDoTextField.inputAccessoryView = kbToolBar
+    }
+    
+    /**
+     * 完了ボタンをタップした時の処理
+     */
+    @objc private func pushedCompletionButton (){
+        self.endEditing(true)
+    }
+    
+    /**
+     * 優先度ボタンの選択状況の設定を行う
+     *
+     * - Parameters:
+     *  - editButton:   編集対象となる優先度のボタン
+     *  - isSelected:   タップされたボタンかどうか
+     */
     private func setConfigSelectedButton(editButton: UIButton, isSelected: Bool) {
         if isSelected {
             editButton.setTitleColor(.white, for: .normal)
@@ -142,18 +185,30 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
         }
     }
     
+    /**
+     * 日付を変更するボタンをタップした時の処理
+     */
     @IBAction private func pushedCalendarButton() {
         self.deadlineView.displayCalendarButton()
     }
     
+    /**
+     * 時間を編集するボタンをタップした時の処理
+     */
     @IBAction private func pushedTimePickerButton() {
         self.deadlineView.displayTimePickerButton()
     }
     
+    /**
+     * キャンセルボタンをタップした時の処理
+     */
     @IBAction private func pushedCancelButton() {
         self.delegate?.deleteEditView()
     }
     
+    /**
+     * OKボタンをタップした時の処理
+     */
     @IBAction private func pushedOkButton() {
         self.delegate?.setEditContents(row: self.editingToDoNumber,
                                        toDoText: self.toDoTextField.text!,
@@ -162,6 +217,13 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
     }
     
     // MARK: PickerEditViewDelegate
+    
+    /**
+     * 期日の編集を行うビューの高さを修正する
+     *
+     * - Parameters:
+     *  - height:       期日の編集を行うビューの高さ
+     */
     func adjustEditViewHeight(height: CGFloat) {
         self.deadlineBaseView.isHidden = (height == 0)
         UIView.animate(withDuration: ANIMATION_DURATION,
@@ -170,10 +232,22 @@ class ToDoEditView: UIView, PickerEditViewDelegate {
         }, completion: nil)
     }
     
+    /**
+     * 日付の文字列を修正する
+     *
+     * - Parameters:
+     *  - dateString:   期日
+     */
     func changeDate(dateString: String) {
         self.calendarButton.setTitle(dateString, for: .normal)
     }
     
+    /**
+     * 時間の文字列を修正する
+     *
+     * - Parameters:
+     *  - timeString:   期日の時間
+     */
     func changeTime(timeString: String) {
         self.timeButton.setTitle(timeString, for: .normal)
     }

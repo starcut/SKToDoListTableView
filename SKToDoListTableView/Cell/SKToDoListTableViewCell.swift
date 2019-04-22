@@ -35,19 +35,19 @@ extension SKToDoListTableViewCellDelegate {
 
 class SKToDoListTableViewCell: UITableViewCell {
     // ToDOリストの文言
-    @IBOutlet weak var toDoTextLabel: UILabel!
+    @IBOutlet private weak var toDoTextLabel: UILabel!
     // 全文表示しているかどうかを表す矢印のビュー
-    @IBOutlet weak var arrowImageView: UIImageView!
+    @IBOutlet private weak var arrowImageView: UIImageView!
     // ToDOリストの文言の上マージン
-    @IBOutlet weak var toDoTextLabelTopMargin: NSLayoutConstraint!
+    @IBOutlet private weak var toDoTextLabelTopMargin: NSLayoutConstraint!
     // ToDOリストの文言の下マージン
-    @IBOutlet weak var toDoTextLabelBottomMargin: NSLayoutConstraint!
+    @IBOutlet private weak var toDoTextLabelBottomMargin: NSLayoutConstraint!
     // 期日を表示するラベル
-    @IBOutlet weak var deadlineLabel: UILabel!
+    @IBOutlet private weak var deadlineLabel: UILabel!
     // 期日を表示するラベルの高さ
-    @IBOutlet weak var deadlineLabelHeight: NSLayoutConstraint!
+    @IBOutlet private weak var deadlineLabelHeight: NSLayoutConstraint!
     // 期日を表示するラベルの上マージン
-    @IBOutlet weak var deadlineLabelTopMargin: NSLayoutConstraint!
+    @IBOutlet private weak var deadlineLabelTopMargin: NSLayoutConstraint!
     
     var delegate: SKToDoListTableViewCellDelegate?
     // セルの位置情報

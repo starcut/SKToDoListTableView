@@ -74,6 +74,12 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ILm-xE-N4q" secondAttribute="trailing" id="XeK-AZ-dto"/>
+                        <constraint firstItem="5Ye-hX-UWu" firstAttribute="leading" secondItem="lSS-sh-CXa" secondAttribute="leading" id="bi4-11-fqD"/>
+                        <constraint firstItem="ILm-xE-N4q" firstAttribute="leading" secondItem="lSS-sh-CXa" secondAttribute="leading" id="j0u-Wm-WGu"/>
+                        <constraint firstAttribute="trailing" secondItem="5Ye-hX-UWu" secondAttribute="trailing" id="syb-Vt-RBp"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -10,36 +10,45 @@ import UIKit
 import FSCalendar
 
 protocol PickerEditViewDelegate {
+    // 期日の編集を行うビューの高さを修正する
     func adjustEditViewHeight(height: CGFloat)
-    
+    // 期日を変更する
     func changeDate(dateString: String)
-    
+    // 期日の時間を変更する
     func changeTime(timeString: String)
 }
 
 extension PickerEditViewDelegate {
+    // 期日の編集を行うビューの高さを修正する
     func adjustEditViewHeight(height: CGFloat) {}
-    
+    // 期日を変更する
     func changeDate(dateString: String) {}
-    
+    // 期日の時間を変更する
     func changeTime(timeString: String) {}
 }
 
 class PickerEditView: UIView {
     // カレンダー
-    @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet private weak var calendar: FSCalendar!
     // 時間のPicker
-    @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet private weak var timePicker: UIDatePicker!
     // カレンダーのBaseView
-    @IBOutlet weak var calendarBaseView: UIView!
+    @IBOutlet private weak var calendarBaseView: UIView!
     // 時間のPickerのBaseView
-    @IBOutlet weak var timePickerBaseView: UIView!
+    @IBOutlet private weak var timePickerBaseView: UIView!
     // カレンダーの高さ
-    @IBOutlet weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet private weak var calendarHeight: NSLayoutConstraint!
     // 時間のPickerの高さ
-    @IBOutlet weak var timePickerHeight: NSLayoutConstraint!
+    @IBOutlet private weak var timePickerHeight: NSLayoutConstraint!
     
     var delegate: PickerEditViewDelegate?
+    // カレンダーのデフォルトの高さ
+    private var defaultCalendarHeight: CGFloat = 0.0
+    // カレンダーのデフォルトの高さ
+    private var defaultTimePickerHeight: CGFloat = 0.0
+    
+    // MARK: 初期化処理
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -60,32 +69,49 @@ class PickerEditView: UIView {
         self.addSubview(view)
         
         self.calendar.delegate = self
-        self.calendar.dataSource = self
+        
+        self.defaultCalendarHeight = self.calendarHeight.constant
+        self.defaultTimePickerHeight = self.timePickerHeight.constant
         
         self.calendarBaseView.isHidden = true
         self.timePickerBaseView.isHidden = true
     }
     
+    // MARK: Public Method
+    
+    /**
+     * カレンダーの表示・非表示を切り替える
+     */
     func displayCalendarButton() {
         self.calendarBaseView.isHidden = !self.calendarBaseView.isHidden
+        self.timePickerBaseView.isHidden = true
         
         var height: CGFloat = 0.0
-        if !self.calendarBaseView.isHidden {
+        if self.calendarBaseView.isHidden {
+            self.calendarHeight.constant = 0.0
+        } else {
+            self.calendarHeight.constant = self.defaultCalendarHeight
             height = self.calendarHeight.constant
         }
-        self.timePickerBaseView.isHidden = true
+        
         UIView.animate(withDuration: ANIMATION_DURATION,
                        animations: {
                         self.delegate?.adjustEditViewHeight(height: height)
         }, completion: nil)
     }
     
+    /**
+     * 時間の変更をするピッカーの表示・非表示を切り替える
+     */
     func displayTimePickerButton() {
         self.calendarBaseView.isHidden = true
         self.timePickerBaseView.isHidden = !self.timePickerBaseView.isHidden
         
         var height: CGFloat = 0.0
-        if !self.timePickerBaseView.isHidden {
+        if self.timePickerBaseView.isHidden {
+            self.timePickerHeight.constant = 0.0
+        } else {
+            self.timePickerHeight.constant = self.defaultTimePickerHeight
             height = self.timePickerHeight.constant
         }
         UIView.animate(withDuration: ANIMATION_DURATION,
@@ -94,7 +120,11 @@ class PickerEditView: UIView {
         }, completion: nil)
     }
     
-    /// datePickerの値が変更されたら呼ばれる
+    // MARK: IBAction
+    
+    /**
+     * datePickerの値が変更されたら呼ばれる
+     */
     @IBAction private func didValueChangedDatePicker(_ sender: UIDatePicker) {
         let formatter:DateFormatter = DateFormatter()
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
@@ -103,19 +133,9 @@ class PickerEditView: UIView {
 }
 
 extension PickerEditView: FSCalendarDelegate {
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        self.layoutIfNeeded()
-        self.calendar.frame = self.calendarBaseView.bounds
-        
-    }
-    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let formatter:DateFormatter = DateFormatter()
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "YYYY/MM/dd", options: 0, locale: Locale(identifier: "ja_JP"))
         self.delegate?.changeDate(dateString: formatter.string(from: date))
     }
-}
-
-extension PickerEditView: FSCalendarDataSource {
-    
 }
