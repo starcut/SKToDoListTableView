@@ -29,7 +29,7 @@ class Util: NSObject {
         return formatter.date(from: string)!
     }
     
-    static func createTime(date: Date, identifier: String) -> Date {
+    static func createTime(string: String, identifier: String) -> Date {
         let formatter:DateFormatter = DateFormatter()
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm",
                                                         options: 0,
