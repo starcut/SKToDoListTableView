@@ -190,6 +190,7 @@ extension SKToDoListTableView: ToDoEditViewDelegate {
         self.toDoListArray[row].text = toDoText
         self.toDoListArray[row].priority = priority
         self.toDoListArray[row].deadline = deadline
+        self.toDoListArray[row].isExpanded = false
         // テキストの高さをリセットする
         self.toDoListArray[row].textHeight = 0.0
         self.reloadData()
