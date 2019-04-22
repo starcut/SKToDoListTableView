@@ -89,6 +89,18 @@ class ToDoEditView: UIView {
         
         self.calendar.delegate = self
         
+        // カレンダーの選択済みの日付を設定
+        let formatter2:DateFormatter = DateFormatter()
+        formatter2.dateFormat = DateFormatter.dateFormat(fromTemplate: "YYYY/MM/dd", options: 0, locale: Locale(identifier: "ja_JP"))
+        let deadlineDate: String = self.calendarButton.titleLabel!.text!
+        self.calendar.select(formatter2.date(from: deadlineDate))
+        
+        // 期日の時間の初期設定
+        let formatter:DateFormatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+        let deadlineTime: String = self.timeButton.titleLabel!.text!
+        self.timePicker.date = formatter.date(from: deadlineTime)!
+        
         self.calendar.isHidden = true
         self.timePicker.isHidden = true
     }

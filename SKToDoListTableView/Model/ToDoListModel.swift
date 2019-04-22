@@ -51,7 +51,9 @@ class ToDoListModel: NSObject {
         self.priority = priority
         self.setRegisterAndDeadline(registerDate: registerDate, deadline: deadline)
     }
-    
+    static func create(){
+        
+    }
     /**
      * 登録日、期限の設定を行う
      *
