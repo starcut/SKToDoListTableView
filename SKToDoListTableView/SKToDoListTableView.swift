@@ -94,17 +94,36 @@ extension SKToDoListTableView: UITableViewDelegate, UITableViewDataSource {
 
 // セルのステータスによる処理
 extension SKToDoListTableView: SKToDoListTableViewCellDelegate {
+    /**
+     * 全文表示時のセルの高さと行数を設定する
+     *
+     * - Parameters:
+     *  - cell:         セル
+     *  - labelHeight:  全文表示時のセルの高さ
+     *  - linesNumber:  全文表示時の行数
+     */
     func setToDoTextLabelHeight(cell: SKToDoListTableViewCell, labelHeight: CGFloat, linesNumber: Int) {
         self.toDoListArray[cell.indexPath.row].textHeight = labelHeight
         self.toDoListArray[cell.indexPath.row].linesNumber = linesNumber
     }
     
-    // 完了状態を切り替える
+    /**
+     * 完了状態を切り替える
+     *
+     * - Parameters:
+     *  - cell:     セル
+     */
     func switchCompletionStatus(cell: SKToDoListTableViewCell) {
         self.toDoListArray[cell.indexPath.row].isCompleted = !self.toDoListArray[cell.indexPath.row].isCompleted
         cell.setCellConfigure(model: self.toDoListArray[cell.indexPath.row], indexPath: cell.indexPath)
     }
     
+    /**
+     * セルの全文表示と一行表示を切り替える
+     *
+     * - Parameters:
+     *  - cell:     セル
+     */
     func switchExpandStatus(cell: SKToDoListTableViewCell) {
         self.toDoListArray[cell.indexPath.row].isExpanded = !self.toDoListArray[cell.indexPath.row].isExpanded
         self.performBatchUpdates({
@@ -114,6 +133,15 @@ extension SKToDoListTableView: SKToDoListTableViewCellDelegate {
         }
     }
     
+    /**
+     * 編集ボタンたタップされた時の処理
+     *
+     * - Parameters:
+     *  - row:       編集対象のインデックス
+     *  - toDoText:  編集対象のテキスト
+     *  - priority:  編集対象の優先度
+     *  - dealline:  編集対象の期日
+     */
     func pushedEditButton(row: Int, toDoText: String, priority: ToDoPriority, dealline: String) {
         self.coverView.frame = UIScreen.main.bounds
         self.coverView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
@@ -139,6 +167,9 @@ extension SKToDoListTableView: SKToDoListTableViewCellDelegate {
 }
 
 extension SKToDoListTableView: ToDoEditViewDelegate {
+    /**
+     * 編集のポップアップを非表示にする
+     */
     func deleteEditView() {
         for subview in self.coverView.subviews {
             subview.removeFromSuperview()
@@ -146,6 +177,15 @@ extension SKToDoListTableView: ToDoEditViewDelegate {
         self.coverView.removeFromSuperview()
     }
     
+    /**
+     * 編集内容を反映させる
+     *
+     * - Parameters:
+     *  - row:       編集対象のインデックス
+     *  - toDoText:  編集後のテキスト
+     *  - priority:  編集後の優先度
+     *  - dealline:  編集後の期日
+     */
     func setEditContents(row: Int, toDoText: String, priority: ToDoPriority, deadline: String) {
         self.toDoListArray[row].text = toDoText
         self.toDoListArray[row].priority = priority
