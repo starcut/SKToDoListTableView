@@ -24,6 +24,7 @@ extension ToDoEditViewDelegate {
 }
 
 class ToDoEditView: UIView, FSCalendarDelegate {
+    @IBOutlet private weak var contentView: UIView!
     //ToDo内容
     @IBOutlet weak var toDoTextField: UITextView!
     // 優先度ボタン（低）
@@ -42,6 +43,11 @@ class ToDoEditView: UIView, FSCalendarDelegate {
     @IBOutlet private weak var calendarButton: UIButton!
     // 期限の時間ボタン
     @IBOutlet private weak var timeButton: UIButton!
+    
+    @IBOutlet private weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet private weak var timeHeight: NSLayoutConstraint!
+    var defaultCalendarHeight: CGFloat!
+    var defaultTimeHeight: CGFloat!
     
     var delegate: ToDoEditViewDelegate?
     // 何番目のセルのデータを編集しているか
@@ -84,6 +90,10 @@ class ToDoEditView: UIView, FSCalendarDelegate {
         view.frame = self.bounds
         self.addSubview(view)
         
+        self.defaultCalendarHeight = self.calendarHeight.constant
+        self.defaultTimeHeight = self.timeHeight.constant
+        self.timeHeight.constant = 0.0
+        
         self.setToobBarInTextField()
     }
     
@@ -123,6 +133,8 @@ class ToDoEditView: UIView, FSCalendarDelegate {
     private func initializeDeadline() {
         self.calendar.delegate = self
         
+        
+        
         // カレンダーの選択済みの日付を設定
         self.calendar.select(Util.createDate(string: self.calendarButton.titleLabel!.text!,
                                              identifier: "ja_JP"))
@@ -130,8 +142,7 @@ class ToDoEditView: UIView, FSCalendarDelegate {
         self.timePicker.date = Util.createTime(string: self.timeButton.titleLabel!.text!,
                                                identifier: "ja_JP")
         
-        self.calendar.isHidden = true
-        self.timePicker.isHidden = true
+        
     }
     
     /**
@@ -209,22 +220,51 @@ class ToDoEditView: UIView, FSCalendarDelegate {
      * 日付を変更するボタンをタップした時の処理
      */
     @IBAction private func pushedCalendarButton() {
+        if self.calendarHeight.constant > 0.0 {
+            self.calendarHeight.constant = 0.0
+            self.calendar.isHidden = true
+        } else {
+            self.calendarHeight.constant = self.defaultCalendarHeight
+        }
+        // 非表示にする際、潰れたtimePickerが見えないようにする
+        self.timeHeight.constant = 0.0
+        self.timePicker.isHidden = true
+        
         UIView.animate(withDuration: ANIMATION_DURATION,
+                       delay: 0.0,
+                       options: .curveEaseOut,
                        animations: {
-                        self.calendar.isHidden = !self.calendar.isHidden
-                        self.timePicker.isHidden = true
-        }, completion: nil)
+                        self.contentView.layoutSubviews()
+        },
+                       completion: {(isFinish) in
+                        self.calendar.isHidden = !(self.calendarHeight.constant > 0.0)
+        })
     }
     
     /**
      * 時間を編集するボタンをタップした時の処理
      */
     @IBAction private func pushedTimePickerButton() {
+        self.calendarHeight.constant = 0.0
+        self.calendar.isHidden = true
+        
+        if self.timeHeight.constant > 0.0 {
+            self.timeHeight.constant = 0.0
+            self.timePicker.isHidden = true
+        } else {
+            self.timeHeight.constant = self.defaultTimeHeight
+        }
+        
         UIView.animate(withDuration: ANIMATION_DURATION,
+                       delay: 0.0,
+                       options: .curveEaseOut,
                        animations: {
                         self.calendar.isHidden = true
-                        self.timePicker.isHidden = !self.timePicker.isHidden
-        }, completion: nil)
+                        self.contentView.layoutSubviews()
+        },
+                       completion: {(isFinish) in
+                        self.timePicker.isHidden = !(self.timeHeight.constant > 0.0)
+        })
     }
     
     /**
