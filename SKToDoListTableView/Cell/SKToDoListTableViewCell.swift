@@ -160,7 +160,7 @@ class SKToDoListTableViewCell: UITableViewCell {
      *   - model: ToDoリストに関するモデル
      */
     private func switchTextStyle(model: ToDoListModel) {
-        var stringAttributes : [NSAttributedString.Key : Any] = Dictionary.init()
+        var stringAttributes : [NSAttributedString.Key : Any] = Dictionary()
         
         if model.isCompleted {
             stringAttributes = [

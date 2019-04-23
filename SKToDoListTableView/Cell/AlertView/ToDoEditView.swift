@@ -23,7 +23,7 @@ extension ToDoEditViewDelegate {
     func setEditContents(row: Int, toDoText: String, priority: ToDoPriority, deadline: String) {}
 }
 
-class ToDoEditView: UIView {
+class ToDoEditView: UIView, FSCalendarDelegate {
     //ToDo内容
     @IBOutlet weak var toDoTextField: UITextView!
     // 優先度ボタン（低）
@@ -68,37 +68,8 @@ class ToDoEditView: UIView {
     }
     
     override func layoutSubviews() {
-        self.priorityButtons = [self.priorityLowButton,
-                                self.priorityMiddleButton,
-                                self.priorityHighButton,
-                                self.priorityEmergencyButton]
-        switch self.selectedPriority {
-        case .lowPriority:
-            self.setConfigSelectedButton(editButton: self.priorityButtons[0], isSelected: true)
-            break
-        case .middlePriority:
-            self.setConfigSelectedButton(editButton: self.priorityButtons[1], isSelected: true)
-            break
-        case .highPriority:
-            self.setConfigSelectedButton(editButton: self.priorityButtons[2], isSelected: true)
-            break
-        case .emergencyPriority:
-            self.setConfigSelectedButton(editButton: self.priorityButtons[3], isSelected: true)
-            break
-        }
-        
-        self.calendar.delegate = self
-        
-        // カレンダーの選択済みの日付を設定
-        self.calendar.select(Util.createDate(string: self.calendarButton.titleLabel!.text!,
-                                             identifier: "ja_JP"))
-        
-        // 期日の時間の初期設定
-        self.timePicker.date = Util.createTime(string: self.timeButton.titleLabel!.text!,
-                                               identifier: "ja_JP")
-        
-        self.calendar.isHidden = true
-        self.timePicker.isHidden = true
+        self.initializePrioriryButton()
+        self.initializeDeadline()
     }
     
     // MARK: Private Method
@@ -128,11 +99,13 @@ class ToDoEditView: UIView {
         kbToolBar.barStyle = UIBarStyle.default  // スタイルを設定
         
         // スペーサー
-        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
-        
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace,
+                                     target: self,
+                                     action: nil)
         // 閉じるボタン
-        let completionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(pushedCompletionButton))
-        
+        let completionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done,
+                                               target: self,
+                                               action: #selector(pushedCompletionButton))
         kbToolBar.items = [spacer, completionButton]
         self.toDoTextField.inputAccessoryView = kbToolBar
     }
@@ -142,6 +115,47 @@ class ToDoEditView: UIView {
      */
     @objc private func pushedCompletionButton() {
         self.endEditing(true)
+    }
+    
+    /**
+     * 期日のUIに関する初期化処理
+     */
+    private func initializeDeadline() {
+        self.calendar.delegate = self
+        
+        // カレンダーの選択済みの日付を設定
+        self.calendar.select(Util.createDate(string: self.calendarButton.titleLabel!.text!,
+                                             identifier: "ja_JP"))
+        // 期日の時間の初期設定
+        self.timePicker.date = Util.createTime(string: self.timeButton.titleLabel!.text!,
+                                               identifier: "ja_JP")
+        
+        self.calendar.isHidden = true
+        self.timePicker.isHidden = true
+    }
+    
+    /**
+     * 優先度のボタンに関する初期化処理
+     */
+    private func initializePrioriryButton() {
+        self.priorityButtons = [self.priorityLowButton,
+                                self.priorityMiddleButton,
+                                self.priorityHighButton,
+                                self.priorityEmergencyButton]
+        switch self.selectedPriority {
+        case .lowPriority:
+            self.setConfigSelectedButton(editButton: self.priorityButtons[0], isSelected: true)
+            break
+        case .middlePriority:
+            self.setConfigSelectedButton(editButton: self.priorityButtons[1], isSelected: true)
+            break
+        case .highPriority:
+            self.setConfigSelectedButton(editButton: self.priorityButtons[2], isSelected: true)
+            break
+        case .emergencyPriority:
+            self.setConfigSelectedButton(editButton: self.priorityButtons[3], isSelected: true)
+            break
+        }
     }
     
     /**
@@ -258,9 +272,9 @@ class ToDoEditView: UIView {
     func changeTime(timeString: String) {
         self.timeButton.setTitle(timeString, for: .normal)
     }
-}
-
-extension ToDoEditView: FSCalendarDelegate {
+    
+    // MARK: FSCalendarDelegate
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         self.changeDate(dateString: Util.createDateString(date: date, identifier: "ja_JP"))
     }

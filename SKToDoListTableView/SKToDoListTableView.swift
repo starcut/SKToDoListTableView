@@ -41,7 +41,7 @@ class SKToDoListTableView: UITableView {
                       forCellReuseIdentifier: TO_DO_LIST_TABLE_VIEW_CELL)
         
         // セルがないところに区切り線を表示させない
-        self.tableFooterView = UIView.init()
+        self.tableFooterView = UIView()
         // 区切り線を左端まで伸ばす
         self.separatorInset = .zero
     }
@@ -145,7 +145,7 @@ extension SKToDoListTableView: SKToDoListTableViewCellDelegate {
      */
     func pushedEditButton(row: Int, toDoText: String, priority: ToDoPriority, dealline: String) {
         self.coverView.frame = UIScreen.main.bounds
-        self.coverView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        self.coverView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         self.window?.addSubview(self.coverView)
         
         let editViewHorizontalMargin: CGFloat = 16

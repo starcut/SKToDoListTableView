@@ -18,7 +18,9 @@ class Util: NSObject {
      */
     static func createDateTimeString(date: Date, identifier: String) -> String {
         let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "YYYY/MM/dd HH:mm", options: 0, locale: Locale(identifier: identifier))
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "YYYY/MM/dd HH:mm",
+                                                        options: 0,
+                                                        locale: Locale(identifier: identifier))
         return formatter.string(from: date)
     }
     
@@ -31,7 +33,9 @@ class Util: NSObject {
      */
     static func createDateString(date: Date, identifier: String) -> String {
         let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "YYYY/MM/dd", options: 0, locale: Locale(identifier: identifier))
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "YYYY/MM/dd",
+                                                        options: 0,
+                                                        locale: Locale(identifier: identifier))
         return formatter.string(from: date)
     }
     
@@ -44,7 +48,9 @@ class Util: NSObject {
      */
     static func createTimeString(date: Date, identifier: String) -> String {
         let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: identifier))
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm",
+                                                        options: 0,
+                                                        locale: Locale(identifier: identifier))
         return formatter.string(from: date)
     }
     

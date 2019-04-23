@@ -20,22 +20,22 @@ class ViewController: UIViewController {
             if i%4 == 0 {
                 element = ToDoListModel.init(text: String(format: "TODO %00d f\n\n\n\ntest", i),
                                              priority: .lowPriority,
-                                             registerDate: Date.init(),
-                                             deadline: Date.init())
+                                             registerDate: Date(),
+                                             deadline: Date())
             } else if i%4 == 1 {
                 element = ToDoListModel.init(text: String(format: "TODO %00d", i),
                                              priority: .middlePriority,
-                                             registerDate: Date.init(),
+                                             registerDate: Date(),
                                              deadline: nil)
             } else if i%4 == 2 {
                 element = ToDoListModel.init(text: String(format: "TODO %00d f\ntesttest", i),
                                                                 priority: .highPriority,
-                                                                registerDate: Date.init(),
-                                                                deadline: Date.init())
+                                                                registerDate: Date(),
+                                                                deadline: Date())
             } else {
                 element = ToDoListModel.init(text: String(format: "TODO %00d", i),
                                                                 priority: .emergencyPriority,
-                                                                registerDate: Date.init(),
+                                                                registerDate: Date(),
                                                                 deadline: nil)
             }
             self.tableView.appendToDoListArray(element: element)
