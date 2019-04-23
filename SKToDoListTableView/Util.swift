@@ -15,6 +15,7 @@ class Util: NSObject {
      * - Parameters:
      *  - date:         日付
      *  - identifier:   地域の識別子
+     * - Returns:       dateの日時を格納した文字列
      */
     static func createDateTimeString(date: Date, identifier: String) -> String {
         let formatter:DateFormatter = DateFormatter()
@@ -30,6 +31,7 @@ class Util: NSObject {
      * - Parameters:
      *  - date:         日付
      *  - identifier:   地域の識別子
+     * - Returns:       dateの日付を格納した文字列
      */
     static func createDateString(date: Date, identifier: String) -> String {
         let formatter:DateFormatter = DateFormatter()
@@ -45,6 +47,7 @@ class Util: NSObject {
      * - Parameters:
      *  - date:         日付
      *  - identifier:   地域の識別子
+     * - Returns:       dateの時間を格納した文字列
      */
     static func createTimeString(date: Date, identifier: String) -> String {
         let formatter:DateFormatter = DateFormatter()
@@ -60,6 +63,7 @@ class Util: NSObject {
      * - Parameters:
      *  - date:         日付
      *  - identifier:   地域の識別子
+     * - Returns:       dateの日付を格納したDate型オブジェクト
      */
     static func createDate(string: String, identifier: String) -> Date {
         let formatter:DateFormatter = DateFormatter()
@@ -75,6 +79,7 @@ class Util: NSObject {
      * - Parameters:
      *  - date:         日付
      *  - identifier:   地域の識別子
+     * - Returns:       dateの時間を格納したDate型オブジェクト
      */
     static func createTime(string: String, identifier: String) -> Date {
         let formatter:DateFormatter = DateFormatter()

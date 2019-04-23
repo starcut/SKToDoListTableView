@@ -90,10 +90,12 @@ class ToDoEditView: UIView, FSCalendarDelegate {
         view.frame = self.bounds
         self.addSubview(view)
         
+        // 最初はカレンダーのみ表示させておく
         self.defaultCalendarHeight = self.calendarHeight.constant
         self.defaultTimeHeight = self.timeHeight.constant
         self.timeHeight.constant = 0.0
         
+        // キーボードに完了ボタンを設置する
         self.setToobBarInTextField()
     }
     
@@ -147,6 +149,7 @@ class ToDoEditView: UIView, FSCalendarDelegate {
     
     /**
      * 優先度のボタンに関する初期化処理
+     * 優先度に対応するボタンは背景色が白、それ以外はその優先度に対応した背景色に設定する
      */
     private func initializePrioriryButton() {
         self.priorityButtons = [self.priorityLowButton,
@@ -200,7 +203,7 @@ class ToDoEditView: UIView, FSCalendarDelegate {
             }
         } else {
             editButton.setTitleColor(editButton.borderColor, for: .normal)
-            editButton.backgroundColor = UIColor.clear
+            editButton.backgroundColor = UIColor.white
         }
     }
     
@@ -208,6 +211,7 @@ class ToDoEditView: UIView, FSCalendarDelegate {
     
     /**
      * 優先度ボタンをタップした時の処理
+     * 選択した優先度のボタンは背景色を対応の色に変更し、それ以外は背景色を白にする
      */
     @IBAction private func pushedButton(pushedButton: UIButton) {
         for priorityButton in self.priorityButtons {
@@ -218,6 +222,7 @@ class ToDoEditView: UIView, FSCalendarDelegate {
     
     /**
      * 日付を変更するボタンをタップした時の処理
+     * 時間に関するViewを非表示にし、カレンダーの表示・非表示を切り替える
      */
     @IBAction private func pushedCalendarButton() {
         if self.calendarHeight.constant > 0.0 {
@@ -243,6 +248,7 @@ class ToDoEditView: UIView, FSCalendarDelegate {
     
     /**
      * 時間を編集するボタンをタップした時の処理
+     * カレンダーを非表示にし、日付のpickerの表示・非表示を切り替える
      */
     @IBAction private func pushedTimePickerButton() {
         self.calendarHeight.constant = 0.0
@@ -269,6 +275,7 @@ class ToDoEditView: UIView, FSCalendarDelegate {
     
     /**
      * キャンセルボタンをタップした時の処理
+     * 変更内容を反映させずに編集ビューを閉じる
      */
     @IBAction private func pushedCancelButton() {
         self.delegate?.deleteEditView()
@@ -276,6 +283,7 @@ class ToDoEditView: UIView, FSCalendarDelegate {
     
     /**
      * OKボタンをタップした時の処理
+     * 変更内容を反映させて編集ビューを閉じる
      */
     @IBAction private func pushedOkButton() {
         self.delegate?.setEditContents(row: self.editingToDoNumber,
