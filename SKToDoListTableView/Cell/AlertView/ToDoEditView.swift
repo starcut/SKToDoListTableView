@@ -90,16 +90,12 @@ class ToDoEditView: UIView {
         self.calendar.delegate = self
         
         // カレンダーの選択済みの日付を設定
-        let formatter2:DateFormatter = DateFormatter()
-        formatter2.dateFormat = DateFormatter.dateFormat(fromTemplate: "YYYY/MM/dd", options: 0, locale: Locale(identifier: "ja_JP"))
-        let deadlineDate: String = self.calendarButton.titleLabel!.text!
-        self.calendar.select(formatter2.date(from: deadlineDate))
+        self.calendar.select(Util.createDate(string: self.calendarButton.titleLabel!.text!,
+                                             identifier: "ja_JP"))
         
         // 期日の時間の初期設定
-        let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
-        let deadlineTime: String = self.timeButton.titleLabel!.text!
-        self.timePicker.date = formatter.date(from: deadlineTime)!
+        self.timePicker.date = Util.createTime(string: self.timeButton.titleLabel!.text!,
+                                               identifier: "ja_JP")
         
         self.calendar.isHidden = true
         self.timePicker.isHidden = true
@@ -238,7 +234,7 @@ class ToDoEditView: UIView {
      * datePickerの値が変更されたら呼ばれる
      */
     @IBAction private func didValueChangedDatePicker(_ sender: UIDatePicker) {
-        self.changeTime(timeString: Util.createTimeStringDateAndTime(date: sender.date, identifier: "ja_JP"))
+        self.changeTime(timeString: Util.createTimeString(date: sender.date, identifier: "ja_JP"))
     }
     
     // MARK: PickerEditViewDelegate
@@ -266,6 +262,6 @@ class ToDoEditView: UIView {
 
 extension ToDoEditView: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        self.changeDate(dateString: Util.createDateStringDateAndTime(date: date, identifier: "ja_JP"))
+        self.changeDate(dateString: Util.createDateString(date: date, identifier: "ja_JP"))
     }
 }
