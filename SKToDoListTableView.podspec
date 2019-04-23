@@ -33,9 +33,9 @@ Pod::Spec.new do |spec|
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.source_files  = "SKToDoListTableView/**/*.{h,m,swift}"
-  # spec.exclude_files = "Classes/Exclude"
+  spec.exclude_files = "SKToDoListTableView/Pods/FSCalendar/FSCalendar/*.{h,m,swift}"
 
-  # spec.public_header_files = "Classes/**/*.h"
+  # spec.public_header_files = "SKToDoListTableView/Pods/FSCalendar/FSCalendar/FSCalendar.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

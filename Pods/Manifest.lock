@@ -1,20 +1,16 @@
 PODS:
   - FSCalendar (2.8.0)
-  - SKPaddingLabel (1.0.4)
 
 DEPENDENCIES:
   - FSCalendar
-  - SKPaddingLabel
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FSCalendar
-    - SKPaddingLabel
 
 SPEC CHECKSUMS:
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
-  SKPaddingLabel: 549c3d409e5d22e3d833d8b270930a10f92c0cd0
 
-PODFILE CHECKSUM: 483dcc5ec8f5f9662a34f1f4eedfb1e4f0e62198
+PODFILE CHECKSUM: e971c4a255d12c76525a16ab9cdae3f63c8fefd2
 
 COCOAPODS: 1.6.1
