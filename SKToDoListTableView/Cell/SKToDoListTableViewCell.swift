@@ -85,14 +85,14 @@ class SKToDoListTableViewCell: UITableViewCell {
      *  - indexPath:    セルのテーブルビュー上の位置情報
      */
     func setCellConfigure(model: ToDoListModel, indexPath: IndexPath) {
-        self.editButton.setBackgroundImage(UIImage(named: "icon_edit.png",
-                                                   in: Bundle(for: type(of: self)),
-                                                   compatibleWith: nil),
-                                           for: .normal)
-        self.arrowImageView.image = UIImage(named: "icon_arrow.png",
-                                            in: Bundle(for: type(of: self)),
-                                            compatibleWith: nil)
-        
+        let bundle = Bundle(for: SKToDoListTableViewCell.self)
+        if let imagePath = bundle.path(forResource: "icon_edit", ofType: "png") {
+            self.arrowImageView.image = UIImage(contentsOfFile: imagePath)
+        }
+        if let imagePath = bundle.path(forResource: "icon_arrow", ofType: "png") {
+            self.editButton.setBackgroundImage(UIImage(contentsOfFile: imagePath),
+                                               for: .normal)
+        }
         self.indexPath = indexPath
         self.priority = model.priority
         self.switchTextStyle(model: model)
