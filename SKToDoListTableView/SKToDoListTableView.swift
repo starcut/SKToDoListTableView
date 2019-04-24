@@ -37,7 +37,7 @@ open class SKToDoListTableView: UITableView {
         self.dataSource = self
         
         // セルの登録
-        self.register(UINib(nibName: TO_DO_LIST_TABLE_VIEW_CELL, bundle: Bundle(for: SKToDoListTableViewCell.self)),
+        self.register(UINib(nibName: TO_DO_LIST_TABLE_VIEW_CELL, bundle: Bundle(identifier:"com.seeking-star.SKToDoListTableViewCell")),
                       forCellReuseIdentifier: TO_DO_LIST_TABLE_VIEW_CELL)
         
         // セルがないところに区切り線を表示させない
