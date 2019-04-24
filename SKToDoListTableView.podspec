@@ -33,7 +33,7 @@ Pod::Spec.new do |spec|
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.source_files  = "SKToDoListTableView/**/*.{h,m,swift}"
-  spec.exclude_files = "SKToDoListTableView/Pods/FSCalendar/FSCalendar/*.{h,m,swift}"
+  # spec.exclude_files = "SKToDoListTableView/Pods/FSCalendar/FSCalendar/*.{h,m,swift}"
 
   # spec.public_header_files = "SKToDoListTableView/Pods/FSCalendar/FSCalendar/FSCalendar.h"
 
@@ -46,12 +46,13 @@ Pod::Spec.new do |spec|
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  # spec.framework  = "SomeFramework"
+  # spec.framework  = "FSCalendar"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
 
+  spec.dependency "FSCalendar"
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   # spec.requires_arc = true
