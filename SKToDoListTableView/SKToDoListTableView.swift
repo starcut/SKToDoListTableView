@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SKToDoListTableView: UITableView {
+open class SKToDoListTableView: UITableView {
     // ToDoリストのセル識別子
     private let TO_DO_LIST_TABLE_VIEW_CELL: String = "SKToDoListTableViewCell"
     // デフォルトのセルの高さ
@@ -20,13 +20,13 @@ class SKToDoListTableView: UITableView {
     
     // MARK: 初期化処理
     
-    override init(frame: CGRect, style: UITableView.Style) {
+    override public init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
         self.commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.commonInit()
@@ -53,11 +53,11 @@ class SKToDoListTableView: UITableView {
 
 // テーブルの内部処理
 extension SKToDoListTableView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // セル選択時の処理
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // 左スワイプした時に削除する処理
         if editingStyle == .delete {
             self.toDoListArray.remove(at: indexPath.row)
@@ -69,23 +69,23 @@ extension SKToDoListTableView: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.toDoListArray[indexPath.row].isExpanded {
             return self.toDoListArray[indexPath.row].textHeight
         }
         return DEFAULT_CELL_HEIGHT
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.toDoListArray.count
     }
     
     // セルを表示する
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SKToDoListTableViewCell = tableView.dequeueReusableCell(withIdentifier: TO_DO_LIST_TABLE_VIEW_CELL, for: indexPath) as! SKToDoListTableViewCell
         cell.delegate = self
         cell.setCellConfigure(model: self.toDoListArray[indexPath.row], indexPath: indexPath)
