@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="20W-Pj-amD">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="20W-Pj-amD">
                         <rect key="frame" x="290" y="12" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="20W-Pj-amD" secondAttribute="height" multiplier="1:1" id="Jvb-gJ-Xxn"/>
@@ -41,7 +41,6 @@
                                     <constraint firstAttribute="width" constant="20" id="7d0-gz-tL0"/>
                                     <constraint firstAttribute="width" secondItem="fAz-UB-3lg" secondAttribute="height" multiplier="1:1" id="fmm-Ic-bhs"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="icon_edit"/>
                                 <connections>
                                     <action selector="pushedEditButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gOb-WS-4C2"/>
                                 </connections>
@@ -96,6 +95,7 @@
                 <outlet property="deadlineLabel" destination="r9G-ZB-aO9" id="R0h-hb-qH1"/>
                 <outlet property="deadlineLabelHeight" destination="zwv-k1-V82" id="WLN-HH-toe"/>
                 <outlet property="deadlineLabelTopMargin" destination="eHe-Mg-wLj" id="P0N-PO-RMi"/>
+                <outlet property="editButton" destination="fAz-UB-3lg" id="6xY-2Y-JCt"/>
                 <outlet property="toDoTextLabel" destination="aOs-s9-CWQ" id="uCL-bL-dnf"/>
                 <outlet property="toDoTextLabelBottomMargin" destination="LpD-i7-rgk" id="9nD-kc-Run"/>
                 <outlet property="toDoTextLabelTopMargin" destination="BLa-VE-GHQ" id="Oyp-vU-bqE"/>
@@ -103,8 +103,4 @@
             <point key="canvasLocation" x="47.826086956521742" y="31.138392857142854"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="icon_arrow" width="16" height="16"/>
-        <image name="icon_edit" width="16" height="16"/>
-    </resources>
 </document>

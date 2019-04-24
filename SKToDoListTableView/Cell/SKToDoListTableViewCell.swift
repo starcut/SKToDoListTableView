@@ -36,6 +36,8 @@ extension SKToDoListTableViewCellDelegate {
 class SKToDoListTableViewCell: UITableViewCell {
     // ToDOリストの文言
     @IBOutlet private weak var toDoTextLabel: UILabel!
+    // 編集ボタン
+    @IBOutlet private weak var editButton: UIButton!
     // 全文表示しているかどうかを表す矢印のビュー
     @IBOutlet private weak var arrowImageView: UIImageView!
     // ToDOリストの文言の上マージン
@@ -83,6 +85,14 @@ class SKToDoListTableViewCell: UITableViewCell {
      *  - indexPath:    セルのテーブルビュー上の位置情報
      */
     func setCellConfigure(model: ToDoListModel, indexPath: IndexPath) {
+        self.editButton.setBackgroundImage(UIImage(named: "icon_edit",
+                                                   in: Bundle(for: type(of: self)),
+                                                   compatibleWith: nil),
+                                           for: .normal)
+        self.arrowImageView.image = UIImage(named: "icon_arrow",
+                                            in: Bundle(for: type(of: self)),
+                                            compatibleWith: nil)
+        
         self.indexPath = indexPath
         self.priority = model.priority
         self.switchTextStyle(model: model)
