@@ -29,7 +29,6 @@
 		7CF70A9322607D8F00667EC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70A9222607D8F00667EC9 /* AppDelegate.swift */; };
 		7CF70A9522607D8F00667EC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70A9422607D8F00667EC9 /* ViewController.swift */; };
 		7CF70A9822607D8F00667EC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF70A9622607D8F00667EC9 /* Main.storyboard */; };
-		7CF70A9A22607D9000667EC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF70A9922607D9000667EC9 /* Assets.xcassets */; };
 		7CF70A9D22607D9000667EC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF70A9B22607D9000667EC9 /* LaunchScreen.storyboard */; };
 		7CF70AA322607DA500667EC9 /* SKToDoListTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CF70A8122607C9B00667EC9 /* SKToDoListTableView.framework */; };
 		7CF70AA522607DC400667EC9 /* SKToDoListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70AA422607DC400667EC9 /* SKToDoListTableView.swift */; };
@@ -58,7 +57,6 @@
 		7CF70A9222607D8F00667EC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CF70A9422607D8F00667EC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7CF70A9722607D8F00667EC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7CF70A9922607D9000667EC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CF70A9C22607D9000667EC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CF70A9E22607D9000667EC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CF70AA422607DC400667EC9 /* SKToDoListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKToDoListTableView.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				7CF70A9222607D8F00667EC9 /* AppDelegate.swift */,
 				7CF70A9422607D8F00667EC9 /* ViewController.swift */,
 				7CF70A9622607D8F00667EC9 /* Main.storyboard */,
-				7CF70A9922607D9000667EC9 /* Assets.xcassets */,
 				7CF70A9B22607D9000667EC9 /* LaunchScreen.storyboard */,
 				7CF70A9E22607D9000667EC9 /* Info.plist */,
 			);
@@ -309,7 +306,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF70A9D22607D9000667EC9 /* LaunchScreen.storyboard in Resources */,
-				7CF70A9A22607D9000667EC9 /* Assets.xcassets in Resources */,
 				7CF70A9822607D8F00667EC9 /* Main.storyboard in Resources */,
 				7CDD0C5922687DAB008A04A4 /* ToDoEditView.xib in Resources */,
 				7C9CA82E2260846800B4B57C /* SKToDoListTableViewCell.xib in Resources */,

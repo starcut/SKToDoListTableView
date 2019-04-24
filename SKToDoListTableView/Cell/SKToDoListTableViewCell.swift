@@ -86,10 +86,10 @@ class SKToDoListTableViewCell: UITableViewCell {
      */
     func setCellConfigure(model: ToDoListModel, indexPath: IndexPath) {
         let bundle = Bundle(for: SKToDoListTableViewCell.self)
-        if let imagePath = bundle.path(forResource: "icon_edit", ofType: "png") {
+        if let imagePath = bundle.path(forResource: "icon_arrow", ofType: "png") {
             self.arrowImageView.image = UIImage(contentsOfFile: imagePath)
         }
-        if let imagePath = bundle.path(forResource: "icon_arrow", ofType: "png") {
+        if let imagePath = bundle.path(forResource: "icon_edit", ofType: "png") {
             self.editButton.setBackgroundImage(UIImage(contentsOfFile: imagePath),
                                                for: .normal)
         }
