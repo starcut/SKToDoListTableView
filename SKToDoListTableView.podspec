@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "SKToDoListTableView"
-  spec.version      = "0.1.6"
+  spec.version      = "0.1.7"
   spec.summary      = "This library simplifies management of your ToDoList"
 
   # spec.description  = <<-DESC
@@ -32,7 +32,7 @@ Pod::Spec.new do |spec|
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.source_files  = "SKToDoListTableView/**/*.{h,m,swift,xib}"
+  spec.source_files  = "SKToDoListTableView/**/*.{h,m,swift}"
   # spec.exclude_files = "SKToDoListTableView/Pods/FSCalendar/FSCalendar/*.{h,m,swift}"
 
   # spec.public_header_files = "SKToDoListTableView/Pods/FSCalendar/FSCalendar/FSCalendar.h"
@@ -40,7 +40,7 @@ Pod::Spec.new do |spec|
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   # spec.resource  = "icon.png"
-  # spec.resources = "Resources/*.png"
+  spec.resources = "SKToDoListTableView/**/*.{xib,png}"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
