@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "SKToDoListTableView"
-  spec.version      = "0.1.3"
+  spec.version      = "0.1.4"
   spec.summary      = "This library simplifies management of your ToDoList"
 
   # spec.description  = <<-DESC
