@@ -84,7 +84,7 @@ class ToDoEditView: UIView, FSCalendarDelegate {
      * 共通の初期化処理
      */
     private func commonInit() {
-        let view = Bundle.main.loadNibNamed(String(describing: type(of: self)),
+        let view = Bundle.main.loadNibNamed(String(describing: ToDoEditView.self),
                                             owner: self,
                                             options: nil)?.first as! UIView
         view.frame = self.bounds
