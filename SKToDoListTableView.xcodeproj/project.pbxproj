@@ -23,6 +23,8 @@
 		7CDD0C5A22687DAB008A04A4 /* ToDoEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD0C5822687DAB008A04A4 /* ToDoEditView.xib */; };
 		7CDE848E226DC64800D40012 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE848D226DC64800D40012 /* Util.swift */; };
 		7CDE848F226DC64800D40012 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDE848D226DC64800D40012 /* Util.swift */; };
+		7CEEC52222704B0C00C793C2 /* icon_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CEEC52122704B0C00C793C2 /* icon_arrow.png */; };
+		7CEEC52422704B1400C793C2 /* icon_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CEEC52322704B1400C793C2 /* icon_edit.png */; };
 		7CF70A8622607C9B00667EC9 /* SKToDoListTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CF70A8422607C9B00667EC9 /* SKToDoListTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7CF70A9322607D8F00667EC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70A9222607D8F00667EC9 /* AppDelegate.swift */; };
 		7CF70A9522607D8F00667EC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF70A9422607D8F00667EC9 /* ViewController.swift */; };
@@ -47,6 +49,8 @@
 		7CDD0C5422687D89008A04A4 /* ToDoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoEditView.swift; sourceTree = "<group>"; };
 		7CDD0C5822687DAB008A04A4 /* ToDoEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoEditView.xib; sourceTree = "<group>"; };
 		7CDE848D226DC64800D40012 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		7CEEC52122704B0C00C793C2 /* icon_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_arrow.png; path = Demo/Assets.xcassets/icon/icon_arrow.imageset/icon_arrow.png; sourceTree = SOURCE_ROOT; };
+		7CEEC52322704B1400C793C2 /* icon_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_edit.png; path = Demo/Assets.xcassets/icon/icon_edit.imageset/icon_edit.png; sourceTree = SOURCE_ROOT; };
 		7CF70A8122607C9B00667EC9 /* SKToDoListTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SKToDoListTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF70A8422607C9B00667EC9 /* SKToDoListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKToDoListTableView.h; sourceTree = "<group>"; };
 		7CF70A8522607C9B00667EC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 			path = AlertView;
 			sourceTree = "<group>";
 		};
+		7CEEC52022704AE800C793C2 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				7CEEC52122704B0C00C793C2 /* icon_arrow.png */,
+				7CEEC52322704B1400C793C2 /* icon_edit.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		7CF70A7722607C9B00667EC9 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +167,7 @@
 		7CF70A8322607C9B00667EC9 /* SKToDoListTableView */ = {
 			isa = PBXGroup;
 			children = (
+				7CEEC52022704AE800C793C2 /* image */,
 				7CABA21F226955FA0018B91B /* Additional */,
 				7C9CA8332260936400B4B57C /* Model */,
 				7C9CA8322260935800B4B57C /* Cell */,
@@ -285,6 +299,8 @@
 			files = (
 				7CDD0C5A22687DAB008A04A4 /* ToDoEditView.xib in Resources */,
 				7C9CA82D2260846800B4B57C /* SKToDoListTableViewCell.xib in Resources */,
+				7CEEC52422704B1400C793C2 /* icon_edit.png in Resources */,
+				7CEEC52222704B0C00C793C2 /* icon_arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
