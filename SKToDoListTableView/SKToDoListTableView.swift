@@ -46,7 +46,7 @@ open class SKToDoListTableView: UITableView {
         self.separatorInset = .zero
     }
     
-    func appendToDoListArray(element: ToDoListModel){
+    open func appendToDoListArray(element: ToDoListModel){
         self.toDoListArray.append(element)
     }
 }

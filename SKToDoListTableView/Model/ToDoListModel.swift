@@ -16,7 +16,7 @@ public enum ToDoPriority: Int {
     case emergencyPriority = 4
 }
 
-class ToDoListModel: NSObject {
+open class ToDoListModel: NSObject {
     // ToDoリストの内容
     var text: String = "ToDoの内容が入力されていません"
     // ToDoリストの内容の全文表示時のラベルの高さ
@@ -37,23 +37,21 @@ class ToDoListModel: NSObject {
     var canExpand: Bool = false
     
     // 基本的にこちらは使わない
-    override init() {
+    override public init() {
         super.init()
         
         self.setRegisterAndDeadline(registerDate: Date(), deadline: nil)
     }
     
     // ToDoの登録内容を格納して初期化する
-    init(text: String, priority: ToDoPriority, registerDate: Date, deadline: Date!) {
+    public init(text: String, priority: ToDoPriority, registerDate: Date, deadline: Date!) {
         super.init()
         
         self.text = text
         self.priority = priority
         self.setRegisterAndDeadline(registerDate: registerDate, deadline: deadline)
     }
-    static func create(){
-        
-    }
+    
     /**
      * 登録日、期限の設定を行う
      *
